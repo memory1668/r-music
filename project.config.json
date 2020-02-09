@@ -74,6 +74,13 @@
 					"pathName": "pages/blog/blog",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName=差不多先生&avatarUrl=https://wx.qlogo.cn/mmopen/vi_32/C3fweXtXQBibtaiba…IGErOSB3uZoeNrln5SOVfGibIadMicTXIepUhBKkJcAJg/132",
+					"scene": null
 				}
 			]
 		}

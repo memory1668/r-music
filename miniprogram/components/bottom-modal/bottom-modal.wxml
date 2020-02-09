@@ -1,0 +1,8 @@
+<view class="modal" hidden="{{!isShowModel}}">
+  <view class="panel">
+    <!-- 关闭弹层图标 -->
+    <i class="iconfont icon-shanchu1" bindtap="onClose"></i>
+    <!-- 弹层内容 -->
+    <slot name="modal-content"></slot>
+  </view>
+</view>

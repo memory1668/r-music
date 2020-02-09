@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isShowModel: false // 是否显示弹出层
   },
 
   /**
@@ -61,6 +61,49 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+
+  /**
+   * 点击发布
+   */
+  onPublish() {
+    // 判断用户是否授权
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: (res) => {
+              console.log(res)
+              this.onLoginSuccess({
+                detail: res.userInfo
+              })
+            }
+          })
+        } else {
+          this.setData({
+            isShowModel: true
+          })
+        }
+      },
+    })
+  },
+
+  /**
+   * 登录成功
+   */
+  onLoginSuccess(event) {
+    console.log('登录成功', event)
+    const detail = event.detail
+    wx.navigateTo({
+      url: `/pages/blog-edit/blog-edit?nickName=${detail.nickName}&avatarUrl=${detail.avatarUrl}`,
+    })
+  },
+
+  /**
+   * 登录失败
+   */
+  onLoginFail() {
 
   }
 })

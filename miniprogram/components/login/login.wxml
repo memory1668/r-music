@@ -1,0 +1,8 @@
+<r-bottom-modal isShowModel="{{isShowModel}}">
+  <view slot="modal-content">
+    <button class="login" 
+      open-type="getUserInfo"
+      bindgetuserinfo="onGotUserInfo"
+    >获取微信授权信息</button>
+  </view>
+</r-bottom-modal>
