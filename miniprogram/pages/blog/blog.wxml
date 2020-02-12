@@ -7,9 +7,19 @@
 		</view>
     <!-- 搜索 -->
 		<view class="search-container">
-      <search iconfont="iconfont" icon-sousuo="icon-sousuo"></search>
+      <search iconfont="iconfont" 
+              icon-sousuo="icon-sousuo"
+              bind:search="onSearch"></search>
     </view>
 	</view>
+  <!-- 博客卡片列表 -->
+  <view class="blog-list">
+    <block wx:for="{{blogList}}" wx:key="_id">
+      <view class="blog-panel">
+        <r-blog-card blog="{{item}}" data-blogid="{{item._id}}" bindtap="goComment"/>
+      </view>
+    </block>
+  </view>
   <!-- 获取授权信息弹出层 -->
   <r-login isShowModel="{{isShowModel}}"
     bind:loginsuccess="onLoginSuccess"

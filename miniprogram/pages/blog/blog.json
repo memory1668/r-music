@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "search": "/components/search/search",
-    "r-login": "/components/login/login"
+    "r-login": "/components/login/login",
+    "r-blog-card": "/components/blog-card/blog-card"
   },
-  "navigationBarTitleText": "发现"
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true
 }

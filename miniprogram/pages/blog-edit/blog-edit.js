@@ -160,11 +160,12 @@ Page({
     }
     wx.showLoading({
       title: '发布中',
+      mask: true
     })
     this._uploadImages().then(res => {
-      console.log(' 所有 File Id', res[res.length-1])
+      console.log('所有 File Id', res)
       // 所有 File Id
-      const img = res[res.length - 1]
+      const img = res[0]
       this._post(img).then(res => {
         wx.hideLoading()
         wx.showToast({
@@ -172,6 +173,10 @@ Page({
           icon: 'none'
         })
         wx.navigateBack()
+        // 调用上一个页面的下拉刷新方法
+        const pages = getCurrentPages()
+        const prevPage = pages[pages.length - 2] // 前一个页面
+        prevPage.onPullDownRefresh()
       }).catch(err => {
         wx.hideLoading()
         wx.showToast({
@@ -202,8 +207,8 @@ Page({
           cloudPath: 'blog/' + Date.now() + Math.random() * 1000000 + suffix,
           filePath: item,
           success: res => {
-            console.log('上传图片成功', res)
-            fileIds = fileIds.concat(res.fileID)
+            fileIds.push(res.fileID)
+            console.log('上传图片成功', res, fileIds)
             resolve(fileIds)
           },
           fail: err => {
