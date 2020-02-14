@@ -1,0 +1,11 @@
+<r-bottom-modal isShowModel="{{isShowModel}}">
+  <view slot="modal-content">
+    <textarea placeholder="写评论" 
+              name="content" 
+              class="comment-content" 
+              value="{{content}}" 
+              fixed="true"
+              bindinput="onInput"></textarea>
+    <button class="send" bindtap="onSend">发送</button>
+  </view>
+</r-bottom-modal>

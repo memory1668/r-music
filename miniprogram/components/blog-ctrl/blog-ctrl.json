@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "r-login": "/components/login/login",
+    "r-comment-popup": "/components/comment-popup/comment-popup"
+  }
+}

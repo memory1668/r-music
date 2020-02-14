@@ -32,9 +32,6 @@ Component({
         this.triggerEvent('loginsuccess', userInfo)
       }else {
         this.triggerEvent('loginfail')
-        wx.showModal({
-          title: '需要授权才能发布',
-        })
       }
     }
   }

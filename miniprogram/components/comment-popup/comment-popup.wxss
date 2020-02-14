@@ -1,0 +1,16 @@
+.comment-content {
+  padding: 20rpx;
+  text-align: left;
+}
+
+.send {
+  background-color: #d43c33;
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+  width: 108rpx;
+  margin: 10rpx 0;
+  position: absolute;
+  bottom: 0;
+  right: 20rpx;
+}

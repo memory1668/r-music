@@ -1,0 +1,16 @@
+<view class="ctrl">
+	<view class="ctrl-item" bindtap="onComment">
+		<i class="iconfont icon-comment icon"></i>
+		<text class="text">评论</text>
+	</view>
+	<view class="ctrl-item">
+		<button open-type="share" data-blog="{{blog}}" class="share-btn" hover-class="share-hover">
+			<i class="iconfont icon-fenxiang icon"></i>
+			<text class="text">分享</text>
+		</button>
+	</view>
+</view>
+
+<r-login isShowModel="{{isShowLogin}}" catch:loginsuccess="onLoginSuccess" catch:loginfail="onLoginFail" />
+
+<r-comment-popup isShowModel="{{isShowComment}}" userInfo="{{userInfo}}" blogId="{{blogId}}" bind:refreshCommentList="refreshCommentList"></r-comment-popup>

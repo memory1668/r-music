@@ -81,6 +81,27 @@
 					"pathName": "pages/blog-edit/blog-edit",
 					"query": "nickName=差不多先生&avatarUrl=https://wx.qlogo.cn/mmopen/vi_32/C3fweXtXQBibtaiba…IGErOSB3uZoeNrln5SOVfGibIadMicTXIepUhBKkJcAJg/132",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论详情",
+					"pathName": "pages/blog-comment/blog-comment",
+					"query": "blogId=d9ea35c25e42a8600e063d035a027509",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "demo",
+					"pathName": "pages/demo/demo",
+					"query": "blogId=d9ea35c25e42a8600e063d035a027509",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/profile/profile",
+					"query": "blogId=d9ea35c25e42a8600e063d035a027509",
+					"scene": null
 				}
 			]
 		}

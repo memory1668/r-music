@@ -64,8 +64,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (event) {
+    if (event.from == 'button') {
+      const blogObj = event.target.dataset.blog
+      console.log(event);
+      return {
+        title: blogObj.content,
+        path: `pages/blog-comment/blog-comment?blogId=${blogObj._id}`
+      }
+    }
   },
 
   /**
@@ -85,6 +92,7 @@ Page({
             }
           })
         } else {
+          // 弹出授权按钮
           this.setData({
             isShowModel: true
           })
@@ -108,7 +116,9 @@ Page({
    * 登录失败
    */
   onLoginFail() {
-
+    wx.showModal({
+      title: '需要授权才能发布',
+    })
   },
 
   /**

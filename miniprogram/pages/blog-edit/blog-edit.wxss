@@ -69,3 +69,11 @@
   font-size: 38rpx;
   font-weight: bolder;
 }
+
+.selectphoto {
+  border: 1px dashed #bebebe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bebebe;
+}

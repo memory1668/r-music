@@ -1,11 +1,14 @@
 // pages/blog-comment/blog-comment.js
+import formatTime from '../../utils/formatTime'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    blog: {},
+    commentList: [],
+    blogId: ''
   },
 
   /**
@@ -13,6 +16,10 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.setData({
+      blogId: options.blogId
+    })
+    this._getBlogDetail()
   },
 
   /**
@@ -61,6 +68,40 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    const blogObj = this.data.blog
+    return {
+      title: blogObj.content,
+      path: `pages/blog-comment/blog-comment?blogId=${blogObj._id}`,
+    }
+  },
 
+  _getBlogDetail() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+
+    wx.cloud.callFunction({
+      name: 'blog',
+      data: {
+        blogId: this.data.blogId,
+        $url: 'detail'
+      }
+    }).then(res => {
+      console.log('获取博客详情成功', res);
+      let commentList = res.result.commentList.data
+      commentList.forEach((item, index) => {
+        item.createTime = formatTime(new Date(item.createTime))
+      })
+      this.setData({
+        blog: res.result.detail.data[0],
+        commentList: res.result.commentList.data
+      })
+    }).catch(err => {
+      console.log('获取博客详情失败', err);
+    }).finally(() => {
+      wx.hideLoading()
+
+    })
   }
 })

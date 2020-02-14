@@ -1,0 +1,24 @@
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_1635732_6jffs1cp7sc.eot?t=1581475760163'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_1635732_6jffs1cp7sc.eot?t=1581475760163#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOoAAsAAAAACAQAAANZAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDaIMwATYCJAMMCwgABCAFhG0HPBv8BhEVnAvIfiTYuMQ9HPktSs6tZoIH0qt/k8nmcskRrsAPqQJz3ZdcsSO0CRAQfP+ndmyhA8rCPE+8y/+4PzMv1/W8xiUqYAH7P5fTJvhh6z/vHVJitxpj6V4aDcA4oIDGXkCBFkiC3jB2E+VBrIcADEJIQlTV1LaiowK6CUAMHTSgF3rKiFqTKdARaCVjVcQcbOjKVOUsMJt/X7whQ+igYJOAvo39q/tS9jzreZ607BZdKQ1qPDugTQIJJAEqiO6lzo7IMJiExHCUan2ihopAGctjtwMnXbkG//BAQYDQAOlOAMRJCuWkKEzGqjxRfNbUzXXWAEdgFXDGNHkBEBuqiQT4pzp+fcC0HdbO6bvbdhnCjN6si8uBq2HK2mvZ5tamdgun+3YwT9yIlOuu54hOSw5HGQu2eLW2b9vmY2w6GiCXb4913bjVf/yBk3G9l7cF9Nl6KvvGjQ7Xr7e/erXV8u+57bQRCF+71m76hcReSyBrGnU/eMm6OO1y25WRh4h8ekIzSo4P++X3MP1hGnb48SASSf2Y/tF3v+G2FZ9Kyhgnymo+bTu7qKwo06ycP2enKK0R4yis/4jcd7pmbfvUS4weDu+kzP20faSmj9M/jFwx8oNOhhA97V3i9rUktcTt7WLvWSk6dRKVAkZxQsZKn0JUbCWdOlOBIfZj6xKfFqQ4oGxkv+Z+Te2a2/n8G9mvKaQ16custLypzEVPQEd5VAL25XFp/dDf8O/Wx4s9XIu+6aYKwO1BU/bwMfZVpAXoKNCa+n1UyyLVlQCTVG0Sk35E0ort5eAirqv4adkAHtzv7/aG2C7QdUoEBQeCQaITRVfZSWDDJAs0dErBIBGrnmziiSwRqiOQ4C2AwM0HFFw4BhI3X7rK/oENH3/QcGsJBu3znNMkJn+oJBSMGuQLvOo7gyx8CDKPaG+NoKSEc65Ik/dAnmTZSI0d0hgDprstmA0Y6luohM2waXoYqA+oOHHMQ5mmpuxFierb2YFKBAkMaUB6AZ7S6xhamR1ynz9C1k1DoJqCDvoKkYmvHeQSWQt6rexaFVzLJZM7q8CYAQzSa4FKsKMGBntgKG8VIIUlXA//oJRK5UxbZTK/un2+VYAByJdCEVKoOBzZsBY73vXH7ulFZ2czAAAA') format('woff2'),
+  url('//at.alicdn.com/t/font_1635732_6jffs1cp7sc.woff?t=1581475760163') format('woff'),
+  url('//at.alicdn.com/t/font_1635732_6jffs1cp7sc.ttf?t=1581475760163') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_1635732_6jffs1cp7sc.svg?t=1581475760163#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-comment:before {
+  content: "\e638";
+}
+
+.icon-fenxiang:before {
+  content: "\e634";
+}

@@ -1,0 +1,5 @@
+<open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data>
+<open-data type="userCountry"></open-data>
+<button open-type="getUserInfo" bindgetuserinfo="gotUserInfo">获取用户信息</button>
+<button bindtap="getOpenId">getOpenId</button>
