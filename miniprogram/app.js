@@ -21,8 +21,11 @@ App({
       isPlaying: false, // 是否正在播放
       currentTime: '00:00', // 当前播放时间
       movableDis: 0, // 小圆球移动的距离
-      progress: 0 // 进度条移动距离
+      progress: 0, // 进度条移动距离
+      openid: -1
     }
+
+    this.getOpenId()
   },
 
   setPlayingMusicId(musicId) {
@@ -31,5 +34,17 @@ App({
 
   getPlayingMusicId() {
     return this.globalData.playingMusicId
+  },
+
+  getOpenId() {
+    wx.cloud.callFunction({
+      name: 'login',
+    }).then(res => {
+      const openid = res.result.openid
+      this.globalData.openid = openid
+      if (wx.getStorageSync(openid) == ''){
+        wx.setStorageSync(openid, [])
+      }
+    })
   }
 })

@@ -106,7 +106,7 @@ Page({
     })
     // 设置全局当前正在播放的音乐id
     app.setPlayingMusicId(musicId)
-    if(!this.data.isSame){
+    if (!this.data.isSame) {
       wx.showLoading({
         title: '加载中',
       })
@@ -137,6 +137,8 @@ Page({
         backgroundAudioManager.coverImgUrl = music.al.picUrl
         backgroundAudioManager.singer = music.ar[0].name
         backgroundAudioManager.epname = music.al.name
+
+        this.savePlayHistory()
       }
       // this.setData({
       //   isPlaying: true
@@ -248,5 +250,29 @@ Page({
     this.setData({
       isPlaying: false
     })
+  },
+
+  /**
+   * 保存播放记录
+   */
+  savePlayHistory() {
+    // 正在播放的歌曲
+    const music = list[curIndex]
+    const openid = app.globalData.openid
+    const history =wx.getStorageSync(openid)
+    let bHave = false
+    history.forEach(item => {
+      if(item.id == music.id){
+        bHave = true
+        return
+      }
+    })
+    if(!bHave){
+      history.unshift(music)
+      wx.setStorage({
+        data: history,
+        key: openid,
+      })
+    }
   }
 })

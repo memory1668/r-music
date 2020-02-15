@@ -17,7 +17,7 @@
     <block wx:for="{{blogList}}" wx:key="_id">
       <view class="blog-panel">
         <r-blog-card blog="{{item}}" data-blogid="{{item._id}}" bindtap="goComment"/>
-        <r-blog-ctrl blog="{{item}}"/>
+        <r-blog-ctrl blog="{{item}}" blogId="{{item._id}}"/>
       </view>
     </block>
   </view>

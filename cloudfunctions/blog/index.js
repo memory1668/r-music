@@ -78,5 +78,17 @@ exports.main = async (event, context) => {
       detail
     }
   })
+
+  /**
+   * 根据openid获取博客列表（我的发现）
+   */
+  app.router('getListByOpenid', async (ctx, next) => {
+    ctx.body = await blogCollection.where({
+        _openid: cloud.getWXContext().OPENID
+      }).skip(event.start).limit(event.count)
+      .orderBy('createTime', 'desc').get().then(res => {
+        return res.data
+      })
+  })
   return app.serve()
 }

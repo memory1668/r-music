@@ -1,1 +1,56 @@
-/* pages/profile/profile.wxss */
+@import './iconfont.wxss';
+
+page{
+  background: #f1f1f1;
+}
+
+.profile-header {
+  /* background-image: url(); */
+  background-size: cover;
+  height: 480rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+.avatar-url {
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+  overflow: hidden;
+  border: 6rpx solid #fff;
+  border-radius: 50%;
+}
+
+.nav {
+  margin: 40rpx 30rpx;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid  rgb(246, 244, 244);
+  padding: 20rpx 50rpx 20rpx 15rpx;
+}
+
+.item-icon {
+  color: #d43c33;
+  font-size: 22px;
+  margin-right: 20rpx;
+}
+
+.text{
+  font-size: 14px;
+}
+
+.icon-xiangyou {
+  flex: 1;
+  text-align: right;
+  color: #5f5c5c;
+}

@@ -1,0 +1,23 @@
+<view class="profile-header">
+	<view class="avatar-url">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<open-data type="userNickName" class="nick-name"></open-data>
+</view>
+
+<view class="nav">
+	<view class="nav-item">
+		<navigator class="content" hover-class="none" url="/pages/profile-history/profile-history">
+			<i class="iconfont icon-3lishi item-icon"></i>
+			<text class="text">最近播放</text>
+			<i class="iconfont icon-xiangyou"></i>
+		</navigator>
+	</view>
+	<view class="nav-item">
+		<navigator class="content" hover-class="none" url="/pages/profile-blog/profile-blog">
+			<i class="iconfont icon-zhifeiji item-icon"></i>
+			<text class="text">我的发现</text>
+			<i class="iconfont icon-xiangyou"></i>
+		</navigator>
+	</view>
+</view>
