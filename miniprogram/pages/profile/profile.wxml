@@ -20,4 +20,11 @@
 			<i class="iconfont icon-xiangyou"></i>
 		</navigator>
 	</view>
+	<view class="nav-item content" bindtap="onTapQrCode">
+		<!-- <navigator class="content" hover-class="none" url=""> -->
+			<i class="iconfont icon-zhifeiji item-icon"></i>
+			<text class="text">生成小程序码</text>
+			<i class="iconfont icon-xiangyou"></i>
+		<!-- </navigator> -->
+	</view>
 </view>

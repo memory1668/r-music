@@ -102,6 +102,13 @@
 					"pathName": "pages/profile/profile",
 					"query": "blogId=d9ea35c25e42a8600e063d035a027509",
 					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "playlist",
+					"pathName": "pages/playlist/playlist",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

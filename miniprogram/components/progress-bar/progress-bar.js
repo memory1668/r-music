@@ -6,6 +6,7 @@ let isMoving = false // 进度条是否正在移动
 // 全局背景音频管理对象
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 const app = getApp()
+let timer = {}
 Component({
   /**
    * 组件的属性列表
@@ -30,9 +31,7 @@ Component({
     },
 
     detached() {
-      // console.log('progress-bar detached')
-      // 保存当前播放时长
-      // app.globalData.currentTime = this.data.showTime.currentTime
+      clearTimeout(timer)
     }
   },
 
@@ -104,7 +103,7 @@ Component({
           this._setTotalTime()
         } else {
           // 延时一秒再设置音频总时长
-          setTimeout(() => {
+          timer = setTimeout(() => {
             this._setTotalTime()
           }, 1000)
         }

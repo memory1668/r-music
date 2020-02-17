@@ -62,5 +62,27 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 生成小程序二维码
+   */
+  onTapQrCode() {
+    wx.showLoading({
+      title: '生成中',
+    })
+    wx.cloud.callFunction({
+      name: 'getQrCode',
+    }).then(res => {
+      const fileId = res.result
+      wx.previewImage({
+        urls: [fileId],
+        current: fileId
+      })
+    }).catch(err => {
+      console.log(err);
+    }).finally(() => {
+      wx.hideLoading()
+    })
   }
 })
