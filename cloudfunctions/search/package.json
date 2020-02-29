@@ -1,5 +1,5 @@
 {
-  "name": "music",
+  "name": "search",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
-    "tcb-router": "^1.1.2",
-    "wx-server-sdk": "~1.7.1"
+    "request": "^2.88.2",
+    "wx-server-sdk": "latest"
   }
 }

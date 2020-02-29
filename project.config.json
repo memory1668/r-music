@@ -10,6 +10,8 @@
 		"newFeature": true,
 		"coverView": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -17,11 +19,12 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"nodeModules": true
 	},
 	"appid": "wx279fdac86ddf01cf",
 	"projectname": "music",
-	"libVersion": "2.7.2",
+	"libVersion": "2.10.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -108,6 +111,18 @@
 					"name": "playlist",
 					"pathName": "pages/playlist/playlist",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "profile",
+					"pathName": "pages/profile/profile",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "settting",
+					"pathName": "pages/settting/settting",
 					"scene": null
 				}
 			]
