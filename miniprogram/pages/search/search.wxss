@@ -1,0 +1,4 @@
+.search-container{
+  padding: 20rpx;
+  background: #ea702e;
+}

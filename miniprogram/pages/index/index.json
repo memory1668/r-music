@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tab-bar": "/components/tab-bar/index",
+    "page-playlist": "/components/page-playlist/page-playlist",
+    "page-blog": "/components/page-blog/page-blog",
+    "page-profile": "/components/page-profile/page-profile",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-switch": "@vant/weapp/switch/index"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "search": "/components/search/search",
+    "r-login": "/components/login/login",
+    "r-blog-card": "/components/blog-card/blog-card",
+    "r-blog-ctrl": "/components/blog-ctrl/blog-ctrl"
+  }
+}

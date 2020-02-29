@@ -12,7 +12,7 @@
 		</block>
 		<!-- 选择图片 -->
 		<view class="image-wrap selectphoto" bindtap="onChooseImage" hidden="{{!isShowSelect}}">
-			<i class="iconfont icon-jiahao"></i>
+			<i class="iconfont icon-hao"></i>
 		</view>
 	</view>
 </view>

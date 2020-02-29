@@ -1,0 +1,9 @@
+<view class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover"></view>
+<view class="detail-mask"></view>
+<view class="detail-info">
+  <image src="{{coverImgUrl}}" class="detail-img"></image>
+  <view class="detail">
+    <view class="detail-nm">热歌榜TOP200</view>
+  </view>
+</view>
+<r-musiclist musiclist="{{chartsList}}"></r-musiclist>

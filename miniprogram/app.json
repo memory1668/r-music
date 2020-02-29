@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/playlist/playlist",
     "pages/blog/blog",
     "pages/profile/profile",
@@ -10,39 +11,21 @@
     "pages/blog-comment/blog-comment",
     "pages/demo/demo",
     "pages/profile-history/profile-history",
-    "pages/profile-blog/profile-blog"
+    "pages/profile-blog/profile-blog",
+    "pages/search/search",
+    "pages/charts/charts",
+    "pages/settting/settting"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#D43C33",
+    "navigationBarBackgroundColor": "#ea702e",
     "navigationBarTitleText": "音乐",
     "navigationBarTextStyle": "white"
   },
-  "tabBar": {
-    "color": "#474747",
-    "selectedColor": "#d43c43",
-    "list": [
-      {
-        "pagePath": "pages/playlist/playlist",
-        "text": "音乐",
-        "iconPath": "/images/music.png",
-        "selectedIconPath": "images/music-actived.png"
-      },
-      {
-        "pagePath": "pages/blog/blog",
-        "text": "发现",
-        "iconPath": "/images/blog.png",
-        "selectedIconPath": "/images/blog-actived.png"
-      },
-      {
-        "pagePath": "pages/profile/profile",
-        "text": "我的",
-        "iconPath": "/images/profile.png",
-        "selectedIconPath": "/images/profile-actived.png"
-      }
-    ]
-  },
+  "usingComponents": {},
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio"]
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }

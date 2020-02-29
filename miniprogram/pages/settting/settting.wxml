@@ -1,0 +1,6 @@
+<view>
+  <view>
+    <text>发现模块</text>
+    <switch bindchange="switchChange"></switch>
+  </view>
+</view>

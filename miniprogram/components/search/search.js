@@ -8,6 +8,11 @@ Component({
     placeholder: {
       type: String,
       value: '请输入关键字'
+    },
+
+    disabled: {
+      type: Boolean,
+      value: false
     }
   },
 

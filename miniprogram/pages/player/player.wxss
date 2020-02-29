@@ -65,6 +65,20 @@
   font-size: 80rpx;
 }
 
+.play-mode{
+  font-size: 60rpx;
+  margin-right: 50rpx
+}
+
+.collect {
+  font-size: 60rpx;
+  margin-left: 50rpx
+}
+
+.icon-shoucang{
+  color: #ea702e !important;
+}
+
 .icon-bofang, .icon-zanting {
   font-size: 120rpx;
   margin: 0 50rpx;

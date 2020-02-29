@@ -1,0 +1,54 @@
+<view class="body">
+  <view class="profile-header">
+    <view class="avatar-url">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <open-data type="userNickName" class="nick-name"></open-data>
+  </view>
+  <view class="image-container">
+    <image src="/images/profile-background.png"></image>
+  </view>
+
+  <view class="nav">
+    <view class="nav-item">
+      <navigator class="content" hover-class="none" url="/pages/profile-history/profile-history">
+        <i class="iconfont icon-16 item-icon"></i>
+        <text class="text">最近播放</text>
+        <i class="iconfont icon-xiangyou"></i>
+      </navigator>
+    </view>
+    <view class="nav-item">
+      <navigator class="content" hover-class="none" url="/pages/profile-history/profile-history">
+        <i class="iconfont icon-shoucang11 item-icon"></i>
+        <text class="text">我的收藏</text>
+        <i class="iconfont icon-xiangyou"></i>
+      </navigator>
+    </view>
+    <view class="nav-item" style="">
+      <navigator class="content" hover-class="none" url="/pages/profile-blog/profile-blog">
+        <i class="iconfont icon-aircraft item-icon"></i>
+        <text class="text">我的发现</text>
+        <i class="iconfont icon-xiangyou"></i>
+      </navigator>
+    </view>
+    <view class="nav-item" bindtap="onHideBlog">
+      <!-- <navigator class="content" hover-class="none" url="/pages/settting/settting">
+      <i class="iconfont icon-zhifeiji item-icon"></i>
+      <text class="text">设置</text>
+      <i class="iconfont icon-xiangyou"></i>
+    </navigator> -->
+      <view class="content" hover-class="none" url="/pages/settting/settting">
+        <i class="iconfont icon-shezhi item-icon"></i>
+        <text class="text">设置</text>
+        <i class="iconfont icon-xiangyou"></i>
+      </view>
+    </view>
+    <view class="nav-item content" bindtap="onTapQrCode">
+      <!-- <navigator class="content" hover-class="none" url=""> -->
+      <i class="iconfont icon-saoma item-icon"></i>
+      <text class="text">生成小程序码</text>
+      <i class="iconfont icon-xiangyou"></i>
+      <!-- </navigator> -->
+    </view>
+  </view>
+</view>
