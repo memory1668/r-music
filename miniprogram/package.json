@@ -4,11 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@vant/weapp": "^1.0.6"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "miniprogram-simulate": "^1.1.5"
   }
 }

@@ -64,7 +64,7 @@ exports.main = async(event, context) => {
     // 是否有新插入的歌单数据
     let flag = true
     for (let j = 0, len2 = list.data.length; j < len2; j++) {
-      if (swiperList[i].targetId === list.data[j].musicId) {
+      if (swiperList[i].targetId === list.data[j].targetId) {
         flag = false
         break
       }

@@ -1,33 +1,35 @@
 const list1 = [{
-  "pagePath": "/pages/playlist/playlist",
-  "text": "音乐",
-  "iconPath": "/images/music.png",
-  "selectedIconPath": "/images/music-actived.png"
-},
-{
-  "pagePath": "/pages/blog/blog",
-  "text": "发现",
-  "iconPath": "/images/blog.png",
-  "selectedIconPath": "/images/blog-actived.png"
-},
-{
-  "pagePath": "/pages/profile/profile",
-  "text": "我的",
-  "iconPath": "/images/profile.png",
-  "selectedIconPath": "/images/profile-actived.png"
-}]
+    "pagePath": "/pages/playlist/playlist",
+    "text": "音乐",
+    "iconPath": "/images/music.png",
+    "selectedIconPath": "/images/music-actived.png"
+  },
+  {
+    "pagePath": "/pages/blog/blog",
+    "text": "发现",
+    "iconPath": "/images/blog.png",
+    "selectedIconPath": "/images/blog-actived.png"
+  },
+  {
+    "pagePath": "/pages/profile/profile",
+    "text": "我的",
+    "iconPath": "/images/profile.png",
+    "selectedIconPath": "/images/profile-actived.png"
+  }
+]
 const list2 = [{
-  "pagePath": "/pages/playlist/playlist",
-  "text": "音乐",
-  "iconPath": "/images/music.png",
-  "selectedIconPath": "/images/music-actived.png"
-},
-{
-  "pagePath": "/pages/profile/profile",
-  "text": "我的",
-  "iconPath": "/images/profile.png",
-  "selectedIconPath": "/images/profile-actived.png"
-}]
+    "pagePath": "/pages/playlist/playlist",
+    "text": "音乐",
+    "iconPath": "/images/music.png",
+    "selectedIconPath": "/images/music-actived.png"
+  },
+  {
+    "pagePath": "/pages/profile/profile",
+    "text": "我的",
+    "iconPath": "/images/profile.png",
+    "selectedIconPath": "/images/profile-actived.png"
+  }
+]
 Component({
   data: {
     selected: 0,
@@ -35,10 +37,10 @@ Component({
     selectedColor: "#ea702e",
     list: list1
   },
-  attached() {
-  },
+
+  attached() {},
   pageLifetimes: {
-    show: function () {
+    show: function() {
       console.log('show')
       // const isShowBlog = getApp().globalData.isShowBlog
       // if (isShowBlog) {
@@ -52,6 +54,7 @@ Component({
       // }
     }
   },
+
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset
@@ -59,7 +62,8 @@ Component({
         selected: data.index
       })
       this.triggerEvent('switchTab', {
-        currentTab: data.name
+        currentTab: data.name,
+        curIndex: data.index
       })
     },
 
@@ -69,6 +73,15 @@ Component({
       })
       this.setData({
         selected: 1
+      })
+    },
+
+    /**
+     * 设置当前选中的tab索引
+     */
+    setSelected(selected) {
+      this.setData({
+        selected
       })
     }
   }

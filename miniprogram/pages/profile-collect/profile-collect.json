@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "r-musiclist": "/components/musiclist/musiclist"
+  },
+  "navigationBarTitleText": "收藏"
+}

@@ -13,17 +13,19 @@
     <image src="/images/history.png" mode="widthFix" class="history-image"></image>
   </view>
 </view>
-<!-- 轮播图 -->
-<swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true" class="swiper">
-  <block wx:for="{{swipers}}" wx:key="{{index}}">
-    <swiper-item data-musicid="{{item.music.id}}" data-index="{{index}}" bindtap="onSelect">
-      <image src="{{item.imageUrl}}" class="img" mode="widthFix"></image>
-    </swiper-item>
-  </block>
-</swiper>
-<!-- 歌单列表 -->
-<view class="playlist-container">
-  <block wx:for="{{playlist}}" wx:key="{{_id}}">
-    <x-playlist playlistitem="{{item}}"></x-playlist>
-  </block>
-</view>
+<scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scrollToBottom">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true" class="swiper">
+    <block wx:for="{{swipers}}" wx:key="{{index}}">
+      <swiper-item data-musicid="{{item.music.id}}" data-index="{{index}}" bindtap="onSelect">
+        <image src="{{item.imageUrl}}" class="img" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 歌单列表 -->
+  <view class="playlist-container">
+    <block wx:for="{{playlist}}" wx:key="{{_id}}">
+      <x-playlist playlistitem="{{item}}"></x-playlist>
+    </block>
+  </view>
+</scroll-view>

@@ -83,11 +83,11 @@
   content: "\e70a";
 }
 
-.icon-xiayigexiayishou:before {
+.icon-shangyishoushangyige:before {
   content: "\e600";
 }
 
-.icon-shangyishoushangyige:before {
+.icon-xiayigexiayishou:before {
   content: "\e601";
 }
 

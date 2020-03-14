@@ -1,21 +1,38 @@
 <tab-bar bind:switchTab="onSwitchTab" id="tabbar" />
-<view hidden="{{currentTab == '音乐'? false: true}}" class="tab-container">
+<swiper current="{{curIndex}}" bindchange="swiperChange">
+  <swiper-item>
+    <view class="tab-container">
+      <page-playlist/>
+    </view>
+  </swiper-item>
+  <swiper-item wx:if="{{isShowBlog}}" >
+    <view class="tab-container">
+      <page-blog/>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="tab-container">
+      <page-profile bind:hideBlog="onHideBlog" my-class="iconfont icon-16" />
+    </view>
+  </swiper-item>
+</swiper>
+<!-- <view hidden="{{currentTab == '音乐'? false: true}}" class="tab-container">
   <page-playlist/>
 </view>
 <view hidden="{{currentTab == '发现'? false: true}}" class="tab-container">
   <page-blog/>
 </view>
 <view hidden="{{currentTab == '我的'? false: true}}" class="tab-container">
-  <page-profile bind:hideBlog="onHideBlog" my-class="iconfont icon-16"/>
+  <page-profile bind:hideBlog="onHideBlog" my-class="iconfont icon-16" />
 </view>
+ -->
 <van-popup show="{{ showPopoup }}" bind:close="onClose" closeable round z-index="10000" custom-style="height: 33%; width: 70%">
   <view class="title">自定功能模块</view>
   <view class="func-switch">
-    <block wx:for="{{func}}" wx:key="{{name}}">
+    <block wx:for="{{func}}" wx:key="name">
       <view class="switch-container">
         <text class="func-name">{{item.name}}</text>
-        <van-switch active-color="#07c160" size="20px" checked="{{ item.status }}" bind:change="onChange" data-index="{{index}}"/>
-        <!-- <switch></switch> -->
+        <van-switch active-color="#07c160" size="20px" checked="{{ item.status }}" bind:change="onChange" data-index="{{index}}" />
       </view>
     </block>
   </view>

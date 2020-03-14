@@ -13,7 +13,11 @@ Component({
    */
   properties: {
     playlistitem: {
-      type: Object
+      type: Object,
+      value: {
+        // name: '那些好听却记不起歌名的歌',
+        // playCount: 179162
+      }
     }
   },
 

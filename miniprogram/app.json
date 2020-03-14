@@ -4,7 +4,6 @@
     "pages/playlist/playlist",
     "pages/blog/blog",
     "pages/profile/profile",
-    "pages/test/test",
     "pages/musiclist/musiclist",
     "pages/player/player",
     "pages/blog-edit/blog-edit",
@@ -14,7 +13,8 @@
     "pages/profile-blog/profile-blog",
     "pages/search/search",
     "pages/charts/charts",
-    "pages/settting/settting"
+    "pages/settting/settting",
+    "pages/profile-collect/profile-collect"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

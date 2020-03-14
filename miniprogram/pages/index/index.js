@@ -1,4 +1,5 @@
 // pages/index/index.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -6,6 +7,7 @@ Page({
    */
   data: {
     currentTab: '音乐',
+    curIndex: 0,
     showPopoup: false,
     func: [{
         name: '发现模块',
@@ -23,7 +25,8 @@ Page({
         name: '生成小程序码模块',
         status: true
       }
-    ]
+    ],
+    isShowBlog: true
   },
 
   /**
@@ -37,7 +40,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.getCollectList()
   },
 
   /**
@@ -72,7 +75,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    console.log('页面上拉触底事件的处理函数' + e)
   },
 
   /**
@@ -82,17 +85,20 @@ Page({
 
   },
 
+  // onPageScroll: function (e) {
+  //   // console.log(e.scrollTop)
+  // },
+
   onSwitchTab(e) {
     // console.log(e.detail)
     this.setData({
-      currentTab: e.detail.currentTab
+      currentTab: e.detail.currentTab,
+      curIndex: e.detail.curIndex
     })
   },
 
   onHideBlog() {
     // console.log('onHideBlog')
-    // const tabbar = this.selectComponent('#tabbar')
-    // tabbar.hideBlog()
     this.setData({
       showPopoup: true
     })
@@ -104,11 +110,51 @@ Page({
     });
   },
 
+  /**
+   * 自定义功能开关状态改变
+   */
   onChange(e) {
+    const index = e.currentTarget.dataset.index
     // 需要手动对 checked 状态进行更新
     this.setData({
-      [`func[${e.currentTarget.dataset.index}].status`]: e.detail
+      [`func[${index}].status`]: e.detail
     });
     // console.log('需要手动对 checked 状态进行更新', detail)
+    if (index === 0 && e.detail === false) {
+      console.log('hideBlog')
+      const tabbar = this.selectComponent('#tabbar')
+      tabbar.hideBlog()
+      this.setData({
+        isShowBlog: false,
+        curIndex: 1
+      })
+    }
+  },
+
+  /**
+   * 首页滑动
+   */
+  swiperChange(e) {
+    console.log('轮播图滑动', e)
+    const selected = e.detail.current
+    this.selectComponent('#tabbar').setSelected(selected)
+  },
+
+  /**
+   * 获取收藏音乐列表
+   */
+  getCollectList() {
+    // 由于collect集合的权限是仅创建者可读写，所以无需根据id查询
+    db.collection('collect').get().then(res=>{
+      console.log('获取收藏音乐列表成功', res)
+      let collectList = res.data // 收藏的音乐列表
+      // 保存收藏音乐列表在缓存
+      wx.setStorage({
+        key: 'collectList',
+        data: collectList
+      })
+    }).catch(err=>{
+      console.log('获取收藏音乐列表失败', err)
+    })
   }
 })

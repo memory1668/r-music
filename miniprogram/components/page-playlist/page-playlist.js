@@ -133,6 +133,11 @@ Component({
       wx.navigateTo({
         url: '/pages/profile-history/profile-history'
       })
+    },
+
+    // 滚动到底部
+    scrollToBottom() {
+      this._getPlayList()
     }
   }
 })

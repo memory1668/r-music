@@ -1,19 +1,18 @@
-// miniprogram/pages/test/test.js
+// miniprogram/pages/profile-collect/profile-collect.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    musicList: [] // 收藏音乐列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getMusicInfo()
-    // this.getMovieInfo()
+    this.loadCollectList()
   },
 
   /**
@@ -65,27 +64,11 @@ Page({
 
   },
 
-  getMusicInfo() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'tcbRouter',
-      data: {
-        $url: 'music'
-      }
-    }).then(res => {
-      console.log('music', res)
+  loadCollectList() {
+    this.setData({
+      musicList: wx.getStorageSync('collectList')
     })
-  },
-
-  getMovieInfo() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'tcbRouter',
-      data: {
-        $url: 'movie'
-      }
-    }).then(res => {
-      console.log('movie', res)
-    })
+    // 设置当前的播放列表
+    wx.setStorageSync('musiclist', this.data.musicList)
   }
 })

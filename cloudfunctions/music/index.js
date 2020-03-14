@@ -2,7 +2,6 @@
 const cloud = require('wx-server-sdk')
 // 引入tcb-router
 const TcbRouter = require('tcb-router')
-
 const rp = require('request-promise')
 const axios = require('axios')
 const BASE_URL = 'http://musicapi.xiecheng.live'
@@ -73,54 +72,5 @@ exports.main = async(event, context) => {
         throw error
       })
   })
-
-  // 搜索歌曲
-  app.router('search', async(ctx, next) => {
-    ctx.body = new Promise((resolve, reject)=> {
-      axios.get(`${BASE_URL}/search?keywords= ${event.keyword}`).then(res => {
-        console.log('搜索歌曲成功', res)
-        resolve(res)
-      }).catch(err => {
-        console.log('搜索歌曲失败', err)
-        reject(err)
-      })
-    })
-    // ctx.body = await rp(`${BASE_URL}/search?keywords= ${event.keyword}`)
-    //   .then(async(res) => {
-    //     const songs = JSON.parse(res).result.songs
-    //     let songsFmt = []
-    //     console.log('搜索歌曲成功', error)
-        // for (let i = 0; i < songs.length; i++) {
-        //   // 获取专辑信息
-        //   const album = await rp(`${BASE_URL}/album?id=${songs[i].album.id}`).then(res => {
-        //     console.log('获取专辑信息' + res)
-        //     const al = JSON.parse(res).songs[0].al
-        //     return {
-        //       name: al.name, // 专辑名称
-        //       picUrl: al.picUrl //专辑图
-        //     }
-        //   })
-        //   // 选择需要的字段返回
-        //   songsFmt = songs.map(item => {
-        //     return {
-        //       id: item.id,
-        //       name: item.name, // 歌曲名称
-        //       al: album,
-        //       ar: item.artists.map(item => {
-        //         return {
-        //           name: item.name
-        //         }
-        //       })
-        //     }
-        //   })
-        // }
-  //       return songsFmt
-  //     })
-  //     .catch(error => {
-  //       console.log('搜索歌曲失败', error)
-  //       throw error
-  //     })
-  })
-
   return app.serve()
 }

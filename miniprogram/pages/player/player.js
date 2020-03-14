@@ -1,11 +1,13 @@
 // 播放列表
 let list = []
+let collectList = [] // 收藏列表
 // 当前播放歌曲的索引
 let curIndex = 0
 // 全局背景音频管理对象
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 const app = getApp()
 const db = wx.cloud.database()
+let musicId = -1 // 当前播放的音乐id
 Page({
 
   /**
@@ -18,7 +20,7 @@ Page({
     lyric: '', // 歌词
     isSame: false, // 是否播放同一首歌曲
     isCollected: false,
-    count: 0 // 控制循环模式
+    count: 0, // 控制循环模式
   },
 
   /**
@@ -28,14 +30,17 @@ Page({
     console.log(options)
     // 读取缓存中的音乐列表
     list = wx.getStorageSync('musiclist')
+    // 读取缓存中的收藏列表
+    collectList = wx.getStorageSync('collectList')
     curIndex = options.index
-    const _musicId = parseInt(options.musicId)
+    // const _musicId = parseInt(options.musicId)
+    musicId = parseInt(options.musicId)
     this.setData({
       isPlaying: app.globalData.isPlaying,
-      isSame: _musicId === app.getPlayingMusicId()
+      isSame: musicId === app.getPlayingMusicId(),
     })
     console.log('isSame', this.data.isSame, parseInt(options.musicId), app.getPlayingMusicId())
-    this._loadMusicDetail(_musicId)
+    this._loadMusicDetail(musicId)
   },
 
   /**
@@ -92,24 +97,28 @@ Page({
    * 加载音乐详情
    */
   async _loadMusicDetail(musicId) {
+    // 和正在播放的是同一首歌
     if (!this.data.isSame) {
       // 停止当前播放的歌曲
       backgroundAudioManager.stop()
     }
-    let music = list[curIndex]
-    console.log('加载音乐详情', music)
-    // 歌曲名称
+
+    let music = list[curIndex]// 当前正在播放的歌曲
+    // 设置全局当前正在播放的音乐id
+    app.setPlayingMusicId(musicId)
+
+    // console.log('加载音乐详情', music)
+    // 顶部导航栏设置为歌曲名称
     wx.setNavigationBarTitle({
       title: music.name,
     })
-    // 设置全局当前正在播放的音乐id
-    app.setPlayingMusicId(musicId)
+
     if (!this.data.isSame) {
       wx.showLoading({
         title: '加载中',
       })
     }
-    // 歌曲专辑图片
+    // 获取歌曲专辑图片
     const picUrl = await wx.cloud.callFunction({
       name: 'music',
       data: {
@@ -122,11 +131,17 @@ Page({
     }).catch(err => {
       console.log('歌曲专辑图片失败', err)
     })
+    
     this.setData({
-      picUrl
+      picUrl,
       // isPlaying: false
+      isCollected: collectList.some(item=>{
+        return item.id === musicId
+      })// 是否收藏
     })
-    // 歌曲播放url
+
+
+    // 获取歌曲播放url
     wx.cloud.callFunction({
       name: 'music',
       data: {
@@ -148,7 +163,7 @@ Page({
       }
       if (!this.data.isSame) {
         let singer = music.ar[0].name
-        if(music.ar.length>1){
+        if (music.ar.length > 1) {
           music.ar.forEach((item, index) => {
             if (index !== 0)
               singer = singer + '/' + item.name
@@ -309,13 +324,61 @@ Page({
   },
 
   onCollect() {
-    if(this.data.isCollected){
-      this.setData({
-        isCollected: false,
+    let collectList = []
+    if (this.data.isCollected) {
+      db.collection('collect').where({
+          id: musicId
+      }).remove().then(res => {
+        console.log('取消收藏成功', res)
+        if(res.stats.removed > 0){
+          this.setData({
+            isCollected: false
+          })
+          // 更新缓存收藏列表
+          collectList = wx.getStorageSync('collectList')
+          const index = collectList.findIndex(item=>{
+            return item.id === musicId
+          })
+          collectList.splice(index, 1)
+          wx.setStorage({
+            key: 'collectList',
+            data: collectList
+          })
+        }
+        else {
+          throw '取消收藏失败' + res.errMsg
+        }
+      }).catch(err => {
+        console.log('取消收藏失败', err)
+        wx.showToast({
+          title: '操作失败,请重试',
+          icon: 'none'
+        })
       })
-    }else{
-      this.setData({
-        isCollected: true,
+    } else {
+      db.collection('collect').add({
+        data: {
+          ...list[curIndex], // 歌曲信息
+          createTime: db.serverDate() // 服务端时间
+        }
+      }).then(res => {
+        console.log('收藏成功')
+        this.setData({
+          isCollected: true
+        })
+        // 更新缓存收藏列表
+        collectList = wx.getStorageSync('collectList')
+        collectList.unshift(list[curIndex]) // 将收藏的歌曲添加到列表头部
+        wx.setStorage({
+          key: 'collectList',
+          data: collectList
+        })
+      }).catch(err => {
+        console.log('收藏失败', err)
+        wx.showToast({
+          title: '操作失败,请重试',
+          icon: 'none'
+        })
       })
     }
   },
