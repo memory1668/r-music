@@ -1,4 +1,5 @@
 <view class="blog">
+  <!-- 头部 -->
   <view class="blog-title">
     <image class="blog-portrait" src="{{blog.avatarUrl}}"></image>
     <view class="blog-box">
@@ -6,15 +7,12 @@
       <view class="blog-time">{{createTime}}</view>
     </view>
   </view>
+  <!-- 录音 -->
+  <audio-player iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting" audioSrc="{{blog.audioSrc}}"></audio-player>
   <view class="blog-content">{{blog.content}}</view>
   <view class="blog-img">
     <block wx:for="{{blog.img}}" wx:key="index">
-      <image class="img" 
-             src="{{item}}" 
-             mode="aspectFill"
-             catch:tap="onPreviewImage"
-             data-imgsrc="{{item}}"
-             data-imgs="{{blog.img}}"></image>
+      <image class="img" src="{{item}}" mode="aspectFill" catch:tap="onPreviewImage" data-imgsrc="{{item}}" data-imgs="{{blog.img}}"></image>
     </block>
   </view>
 </view>

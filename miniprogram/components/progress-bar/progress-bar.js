@@ -83,22 +83,22 @@ Component({
      */
     _bindBGMEvent() {
       backgroundAudioManager.onPlay(() => {
-        console.log('onPlay')
+        // console.log('onPlay')
         isMoving = false
         this.triggerEvent('musicPlay')
       })
       backgroundAudioManager.onStop(() => {
-        console.log('onStop')
+        // console.log('onStop')
       })
       backgroundAudioManager.onPause(() => {
-        console.log('onPause')
+        // console.log('onPause')
         this.triggerEvent('musicPause')
       })
       backgroundAudioManager.onWaiting(() => {
-        console.log('onWaiting')
+        // console.log('onWaiting')
       })
       backgroundAudioManager.onCanplay(() => {
-        console.log('onCanplay', backgroundAudioManager.duration)
+        // console.log('onCanplay', backgroundAudioManager.duration)
         if (typeof backgroundAudioManager.duration != 'undefined') {
           this._setTotalTime()
         } else {
@@ -133,7 +133,7 @@ Component({
         }
       })
       backgroundAudioManager.onEnded(() => {
-        console.log('onEnded')
+        // console.log('onEnded')
         // 当前音乐播放结束
         this.triggerEvent('musicEnd')
       })

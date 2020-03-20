@@ -1,23 +1,42 @@
 <view class="container">
-	<textarea class="content" placeholder="分享新鲜事..." maxlength="140" bindinput="onInput" auto-focus bindfocus="onFocus" bindblur="onBlur">
+  <!-- 音频 -->
+  <audio-player iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting" audioSrc="{{tempFilePath}}"></audio-player>
+  <!-- 输入框 -->
+  <textarea class="content" placeholder="分享新鲜事..." maxlength="140" bindinput="onInput" auto-focus bindfocus="onFocus" bindblur="onBlur">
   </textarea>
-	<view class="image-list">
-		<!-- 显示图片 -->
-		<block wx:for="{{images}}" wx:key="*this">
-			<view class="image-wrap">
-				<image class="images" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
+  <view class="image-list">
+    <!-- 显示图片 -->
+    <block wx:for="{{images}}" wx:key="*this">
+      <view class="image-wrap">
+        <image class="images" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
         <!-- 删除图标 -->
         <i class="iconfont icon-shanchu" bindtap="onDelImage" data-index="{{index}}"></i>
-			</view>
-		</block>
-		<!-- 选择图片 -->
-		<view class="image-wrap selectphoto" bindtap="onChooseImage" hidden="{{!isShowSelect}}">
-			<i class="iconfont icon-hao"></i>
-		</view>
-	</view>
+      </view>
+    </block>
+    <!-- 选择图片 -->
+    <view class="image-wrap selectphoto" bindtap="onChooseImage" hidden="{{!isShowSelect}}">
+      <i class="iconfont icon-hao"></i>
+    </view>
+  </view>
 </view>
 <view class="footer" style="bottom:{{fotterBottom}}px">
-	<!-- 输入的字数 -->
-	<text class="words-num">{{wordsNum}}</text>
-	<button class="send-btn" bindtap="send">发布</button>
+  <!-- 录音 -->
+  <i class="iconfont icon-luyin" bindtap="openRecordPopup"></i>
+  <!-- 输入的字数 -->
+  <text class="words-num">{{wordsNum}}</text>
+  <button class="send-btn" bindtap="send">发布</button>
 </view>
+
+<!-- 录音弹出层 -->
+<van-popup show="{{ showPopoup }}" bind:close="closeRecordPopup" position="bottom" custom-style="height: 35%;" closeable close-icon-position="top-left">
+  <view class="icon-success" bindtap="stopRecording">
+    <van-icon name="success" />
+  </view>
+  <!-- <view>录音弹出层</view> -->
+  <view class="record-container">
+    <!-- 开始录音 -->
+    <i wx:if="{{!isRecord}}" class="iconfont icon-tingzhi" bindtap="startRecording"></i>
+    <!-- 暂停录音 -->
+    <i wx:else class="iconfont icon-zanting1" bindtap="pauseRecording"></i>
+  </view>
+</van-popup>

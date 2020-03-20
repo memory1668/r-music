@@ -12,16 +12,19 @@
   <r-lyric class="lyric" bindtap="onShowLyricChange" isLyricShow="{{isLyricShow}}" lyric="{{lyric}}" />
   <!-- 进度条 -->
   <view class="progress-bar">
-    <r-progress-bar bind:musicEnd='onNext' bind:updateTime="updateTime" bind:musicPlay="onPlay" bind:musicPause="onPause" isSame="{{isSame}}" />
+    <r-progress-bar bind:musicEnd='musicEnd' bind:updateTime="updateTime" bind:musicPlay="onPlay" bind:musicPause="onPause" isSame="{{isSame}}" />
   </view>
   <!-- 控制按钮 -->
   <view class="control">
     <!-- 列表循环 -->
-    <text class="iconfont icon-liebiaoxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===0}}"></text>
+    <!-- <text class="iconfont icon-liebiaoxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===0}}"></text> -->
+    <image class="play-mode" src="/images/liebiaoxunhuan.png" bindtap="changeMode" wx:if="{{count%3===0}}"></image>
     <!-- 单曲循环 -->
-    <text class="iconfont icon-danquxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===1}}"></text>
+    <!-- <text class="iconfont icon-danquxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===1}}"></text> -->
+    <image class="play-mode" src="/images/danquxunhuan.png" bindtap="changeMode" wx:if="{{count%3===1}}"></image>
     <!-- 随机播放 -->
-    <text class="iconfont icon-suijibofang play-mode" bindtap="changeMode" wx:if="{{count%3===2}}"></text>
+    <!-- <text class="iconfont icon-suijibofang play-mode" bindtap="changeMode" wx:if="{{count%3===2}}"></text> -->
+    <image class="play-mode" src="/images/suijibofang.png" bindtap="changeMode" wx:if="{{count%3===2}}"></image>
     <!-- 上一曲 -->
     <text class="iconfont icon-shangyishoushangyige" bindtap="onPrev"></text>
     <!-- 播放 -->

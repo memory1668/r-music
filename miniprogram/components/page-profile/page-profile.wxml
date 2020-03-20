@@ -21,33 +21,34 @@
       <navigator class="content" hover-class="none" url="/pages/profile-collect/profile-collect">
         <i class="iconfont icon-shoucang11 item-icon"></i>
         <text class="text">我的收藏</text>
-        <i class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxingbeifen"></i>
+        <i class="iconfont icon-xiangyou"></i>
       </navigator>
     </view>
     <view class="nav-item" style="">
       <navigator class="content" hover-class="none" url="/pages/profile-blog/profile-blog">
         <i class="iconfont icon-aircraft item-icon"></i>
         <text class="text">我的发现</text>
-        <i class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxingbeifen"></i>
+        <i class="iconfont icon-xiangyou"></i>
       </navigator>
     </view>
     <view class="nav-item" bindtap="onHideBlog">
       <!-- <navigator class="content" hover-class="none" url="/pages/settting/settting">
       <i class="iconfont icon-zhifeiji item-icon"></i>
       <text class="text">设置</text>
+        <i class="iconfont icon-xiangyou"></i>
       <i class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxingbeifen"></i>
     </navigator> -->
       <view class="content" hover-class="none" url="/pages/settting/settting">
         <i class="iconfont icon-shezhi item-icon"></i>
         <text class="text">设置</text>
-        <i class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxingbeifen"></i>
+        <i class="iconfont icon-xiangyou"></i>
       </view>
     </view>
     <view class="nav-item content" bindtap="onTapQrCode">
       <!-- <navigator class="content" hover-class="none" url=""> -->
       <i class="iconfont icon-saoma item-icon"></i>
       <text class="text">生成小程序码</text>
-      <i class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxingbeifen"></i>
+        <i class="iconfont icon-xiangyou"></i>
       <!-- </navigator> -->
     </view>
   </view>

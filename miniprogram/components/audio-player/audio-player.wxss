@@ -1,0 +1,36 @@
+.audio-player {
+  background-color: #eb8b58;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.background {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #ea702e;
+  filter: blur(10rpx);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.mask {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #222;
+  z-index: 0;
+}
+
+.abslute {
+  position: absolute;
+}
+
+.audio-icon{
+  font-size: 40px;
+  color: #fff;
+}
+
+.icon-control{
+  width: 80rpx;
+  height: 80rpx;
+}

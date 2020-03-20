@@ -1,0 +1,11 @@
+<view class="audio-player">
+  <!-- <view class="mask abslute"></view>
+  <view class="background abslute"></view> -->
+  <!-- 暂停 -->
+  <image wx:if="{{isPlaying}}" class="icon-control" src="/images/pause.png" catchtap="play"></image>
+   <!-- 播放 -->
+  <image wx:else class="icon-control"  src="/images/play.png" catchtap="play"></image>
+</view>
+<!-- <van-slider value="{{sliderDistance}}" bind:change="onChange" bind:drag-start="dragStart" bind:drag-end="dragEnd"/> -->
+
+<slider value="{{sliderDistance}}"/>

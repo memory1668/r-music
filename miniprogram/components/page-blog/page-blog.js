@@ -1,5 +1,6 @@
 // components/page-blog/page-blog.js
 let keyword = '' //搜索关键字 
+const MAX_LIMIT = 15 //每次获取15条动态
 Component({
   /**
    * 组件的属性列表
@@ -99,9 +100,9 @@ Component({
         name: 'blog',
         data: {
           keyword,
-          start,
-          $url: 'list',
-          count: 10
+          start: this.data.blogList.length,
+          count: MAX_LIMIT,
+          $url: 'list'
         }
       }).then(res => {
         console.log('加载博客列表数据成功', res);
@@ -129,6 +130,13 @@ Component({
       keyword = event.detail.keyword
       // console.log(keyword);
       this.data.blogList = []
+      this._loadBlogList()
+    },
+
+    /**
+     * 滚动到底部
+     */
+    scrollToBottom() {
       this._loadBlogList()
     }
   }

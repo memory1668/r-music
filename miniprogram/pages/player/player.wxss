@@ -65,17 +65,19 @@
   font-size: 80rpx;
 }
 
-.play-mode{
-  font-size: 60rpx;
-  margin-right: 50rpx
+.play-mode {
+  /* font-size: 60rpx; */
+  margin-right: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .collect {
   font-size: 60rpx;
-  margin-left: 50rpx
+  margin-left: 50rpx;
 }
 
-.icon-shoucang{
+.icon-shoucang {
   color: #ea702e !important;
 }
 

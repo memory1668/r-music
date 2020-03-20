@@ -41,6 +41,7 @@ Page({
     })
     console.log('isSame', this.data.isSame, parseInt(options.musicId), app.getPlayingMusicId())
     this._loadMusicDetail(musicId)
+    this._initPlayMode() 
   },
 
   /**
@@ -97,7 +98,7 @@ Page({
    * 加载音乐详情
    */
   async _loadMusicDetail(musicId) {
-    // 和正在播放的是同一首歌
+    // 和正在播放的不是同一首歌
     if (!this.data.isSame) {
       // 停止当前播放的歌曲
       backgroundAudioManager.stop()
@@ -214,6 +215,25 @@ Page({
       wx.hideLoading()
     })
   },
+
+  /**
+   * 初始化播放的循环模式
+   */
+  _initPlayMode() {
+    const count = wx.getStorageSync('count')
+    // 初始化缓存
+    if (!count){
+      wx.setStorage({
+        key: 'count',
+        data: 0
+      })
+    }else{
+      this.setData({
+        count
+      })
+    }
+  },
+
 
   /**
    * 切换播放状态
@@ -383,9 +403,40 @@ Page({
     }
   },
 
+  /**
+   * 切换循环模式
+   */
   changeMode() {
     this.setData({
       count: this.data.count + 1,
     })
+    // 更新缓存
+    wx.setStorage({
+      key: 'count',
+      data: this.data.count
+    })
+  },
+
+  /**
+   * 当前音频播放结束
+   */
+  musicEnd() {
+    // 如果循环模式是列表循环
+    if(this.data.count%3===0){
+      this.onNext()
+    }
+    // 单曲循环
+    else if (this.data.count % 3 === 1){
+      curIndex --
+      this.onNext()
+      console.log('单曲循环')
+      // backgroundAudioManager.stop()
+      // backgroundAudioManager.play()
+    } else if (this.data.count % 3 === 2){
+      // 随机生成音乐索引
+      curIndex = parseInt(Math.random()*list.length, 10)
+      console.log('随机生成音乐索引', curIndex)
+      this.onNext()
+    }
   }
 })

@@ -18,6 +18,12 @@ Component({
     }
   },
 
+  externalClasses: [
+    'iconfont',
+    'icon-bofang',
+    'icon-zanting'
+  ],
+
   /**
    * 组件的初始数据
    */

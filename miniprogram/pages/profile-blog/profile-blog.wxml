@@ -2,7 +2,7 @@
   <view class="blog-list">
     <block wx:for="{{blogList}}" wx:key="_id">
       <view class="blog-panel">
-        <r-blog-card blog="{{item}}" data-blogid="{{item._id}}" bindtap="goComment"/>
+        <r-blog-card blog="{{item}}" data-blogid="{{item._id}}" bindtap="goComment" iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting"/>
         <r-blog-ctrl blog="{{item}}" blogId="{{item._id}}"/>
       </view>
     </block>

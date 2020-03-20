@@ -27,6 +27,11 @@
   padding-right: 30rpx;
 }
 
+.icon-luyin{
+  font-size: 50rpx;
+  padding: 5rpx;
+}
+
 .send-btn {
   background-color: #d43c33;
   color: #fff;
@@ -76,4 +81,23 @@
   align-items: center;
   justify-content: center;
   color: #bebebe;
+}
+
+.record-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.icon-success {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.icon-tingzhi, .icon-zanting1{
+  font-size: 50px;
+  color: #ea702e;
 }
