@@ -115,15 +115,6 @@ Component({
     },
 
     /**
-     * 跳转到博客详情页
-     */
-    goComment(event) {
-      wx.navigateTo({
-        url: '/pages/blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
-      })
-    },
-
-    /**
      * 搜索博客
      */
     onSearch(event) {

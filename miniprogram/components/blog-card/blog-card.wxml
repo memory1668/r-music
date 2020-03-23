@@ -1,4 +1,4 @@
-<view class="blog">
+<view class="blog" bindtap="goComment">
   <!-- 头部 -->
   <view class="blog-title">
     <image class="blog-portrait" src="{{blog.avatarUrl}}"></image>
@@ -8,7 +8,7 @@
     </view>
   </view>
   <!-- 录音 -->
-  <audio-player iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting" audioSrc="{{blog.audioSrc}}"></audio-player>
+  <audio-player id="audio-player" iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting" audioSrc="{{blog.audio.src}}" duration="{{blog.audio.duration}}"></audio-player>
   <view class="blog-content">{{blog.content}}</view>
   <view class="blog-img">
     <block wx:for="{{blog.img}}" wx:key="index">

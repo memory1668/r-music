@@ -18,7 +18,10 @@ Page({
     showPopoup: false, // 是否显示录音弹出层
     isRecord: false, // 是否正在录音
     isStart: false, // 是否已经开始录音
-    tempFilePath: '' // 录音临时路径
+    audio: {
+      src: '', // 录音临时路径
+      duration: 0 // 录音时长
+    }
   },
 
   /**
@@ -179,10 +182,13 @@ Page({
       }
       // 上传录音
       if (this.data.tempFilePath !== '') {
-        audioSrc = await this.uploadAudio(this.data.tempFilePath)
+        audioSrc = await this.uploadAudio(this.data.audio.src)
+        this.setData({
+          ['audio.src']: audioSrc
+        })
       }
       // console.log('发布。。。。')
-      await this._post(img, audioSrc)
+      await this._post(img)
       wx.navigateBack({
         success: () => {
           wx.showToast({
@@ -257,13 +263,13 @@ Page({
   /**
    * 保存博客数据在数据库
    */
-  _post(img, audioSrc) {
+  _post(img) {
     return db.collection('blog').add({
       data: {
         ...userInfo,
         content,
         img,
-        audioSrc,
+        audio: this.data.audio,
         createTime: db.serverDate() // 服务端时间
       }
     })
@@ -349,7 +355,8 @@ Page({
         isRecord: false,
         isStart: false,
         showPopoup: false,
-        tempFilePath: res.tempFilePath
+        ['audio.src']: res.tempFilePath,
+        ['audio.duration']: res.duration/1000 
       })
     })
     recorderManager.stop()

@@ -10,7 +10,7 @@ Component({
 
   observers: {
     ['blog.createTime'](val) {
-      if(val) {
+      if (val) {
         this.setData({
           createTime: formatTime(new Date(val))
         })
@@ -42,6 +42,20 @@ Component({
         urls: ds.imgs,
         current: ds.imgsrc
       })
-    }
+    },
+
+    /**
+     * 跳转到博客详情页
+     */
+    goComment() {
+      const AudioPlayer = this.selectComponent('#audio-player')
+      wx.navigateTo({
+        url: `/pages/blog-comment/blog-comment?blogId=${this.data.blog._id}`,
+        success: ()=>{
+          AudioPlayer.stopCurAudio()
+        }
+      })
+    },
+
   }
 })
