@@ -34,7 +34,7 @@ Component({
   data: {
     selected: 0,
     color: "#7A7E83",
-    selectedColor: "#ea702e",
+    selectedColor: "#FFBE5A",
     list: list1
   },
 
