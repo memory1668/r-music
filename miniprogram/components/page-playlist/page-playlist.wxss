@@ -1,45 +1,118 @@
-.swiper{
-  height: 138.88px
+.swiper {
+  height: 272rpx;
 }
 
-.img{
-  width: 100%;
+.img {
+  width: 704rpx;
   height: 100%;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.search-hot{
+.search-hot {
   display: flex;
   align-items: center;
   padding: 20rpx;
+  margin-top: 25px;
 }
 
-.search-container{
+.search-container {
   flex: 1;
 }
 
-.charts-container{
+.charts-container {
   margin-left: 40rpx;
   margin-right: 20rpx;
 }
 
-.charts-image{
+.charts-image {
   width: 50rpx;
   height: 50rpx;
 }
 
-.history-container{
+.history-container {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
 
-.history-image{
+.history-image {
   width: 50rpx;
   height: 50rpx;
 }
 
-.playlist-container{
+.music-entrance {
+  padding: 34rpx 51rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ent-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
+  width: 118rpx;
+  height: 118rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 27px 0px rgba(4, 0, 0, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ent-item .text {
+  color: #333333;
+  font-size: 14px;
+  margin-top: 24rpx;
+}
+
+.recommend .icon {
+  width: 49rpx;
+  height: 58rpx;
+}
+
+.new .icon {
+  width: 51rpx;
+  height: 58rpx;
+}
+
+.album .icon {
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.singer .icon {
+  width: 58rpx;
+  height: 49rpx;
+}
+
+/* .playlist-container {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10rpx;
   justify-content: space-around;
+} */
+
+.playlist {
+  display: flex;
+  margin: 0 24rpx;  
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 51rpx;
+}
+
+.list-item .cover {
+  width: 216rpx;
+  height: 216rpx;
+  border-radius: 5px;
 }

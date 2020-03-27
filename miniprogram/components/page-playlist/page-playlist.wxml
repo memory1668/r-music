@@ -1,31 +1,70 @@
 <!-- 搜索热榜 -->
 <view class="search-hot">
-  <!-- 搜索 -->
-  <view class="search-container" bindtap="goSearch">
-    <search iconfont="iconfont" icon-sousuo="icon-sousuo" disabled="true"></search>
-  </view>
-  <!-- 排行榜 -->
-  <view class="charts-container" bindtap="goCharts">
+	<!-- 搜索 -->
+	<view class="search-container" bindtap="goSearch">
+		<search iconfont="iconfont" icon-sousuo="icon-sousuo" disabled="true"></search>
+	</view>
+	<!-- 排行榜 -->
+	<!-- <view class="charts-container" bindtap="goCharts">
     <image src="/images/charts.png" mode="widthFix" class="charts-image"></image>
-  </view>
-  <!-- 历史记录 -->
-  <view class="history-container" bindtap="goHistory">
+  </view> -->
+	<!-- 历史记录 -->
+	<!-- <view class="history-container" bindtap="goHistory">
     <image src="/images/history.png" mode="widthFix" class="history-image"></image>
-  </view>
+  </view> -->
 </view>
-<scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scrollToBottom">
-  <!-- 轮播图 -->
-  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true" class="swiper">
-    <block wx:for="{{swipers}}" wx:key="{{index}}">
-      <swiper-item data-musicid="{{item.music.id}}" data-index="{{index}}" bindtap="onSelect">
-        <image src="{{item.imageUrl}}" class="img" mode="widthFix"></image>
-      </swiper-item>
-    </block>
-  </swiper>
-  <!-- 歌单列表 -->
-  <view class="playlist-container">
-    <block wx:for="{{playlist}}" wx:key="{{_id}}">
-      <x-playlist playlistitem="{{item}}"></x-playlist>
-    </block>
-  </view>
+<scroll-view scroll-y="true" style="height:100%">
+	<!-- 轮播图 -->
+	<swiper indicator-dots="true" indicator-active-color="#FFBE5A" autoplay="true" interval="7000" duration="500" circular="true" class="swiper">
+		<block wx:for="{{swipers}}" wx:key="index">
+			<swiper-item data-musicid="{{item.music.id}}" data-index="{{index}}" bindtap="onSelect">
+				<image src="{{item.imageUrl}}" class="img" mode="aspectFit"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<!-- 推荐最新专辑歌手 -->
+	<view class="music-entrance">
+		<!-- 推荐 -->
+		<view class="recommend ent-item">
+			<view class="image-container">
+				<image class="icon" src="/images/recommend.png"></image>
+			</view>
+			<view class="text">推荐</view>
+		</view>
+		<!-- 最新 -->
+		<view class="new ent-item">
+			<view class="image-container">
+				<image class="icon" src="/images/new.png"></image>
+			</view>
+			<view class="text">最新</view>
+		</view>
+		<!-- 专辑 -->
+		<view class="album ent-item">
+			<view class="image-container">
+				<image class="icon" src="/images/album.png"></image>
+			</view>
+			<view class="text">专辑</view>
+		</view>
+		<!-- 歌手 -->
+		<view class="singer ent-item">
+			<view class="image-container">
+				<image class="icon" src="/images/singers.png"></image>
+			</view>
+			<view class="text">歌手</view>
+		</view>
+	</view>
+	<!-- 歌单列表滑动区域 -->
+	<view class="playlist-container">
+		<!-- <block wx:for="{{playlist}}" wx:key="{{_id}}"> -->
+		<!-- <x-playlist playlistitem="{{item}}"></x-playlist> -->
+		<!-- </block> -->
+		<scroll-view scroll-x="true" style="width: 100%">
+			<view class="playlist">
+				<view class="list-item" wx:for="{{playlist}}" wx:key="{{_id}}">
+					<image class="cover" src="{{item.picUrl}}"></image>
+					<view class="name">{{item.name}}</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
 </scroll-view>

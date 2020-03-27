@@ -9,9 +9,9 @@ Component({
 
   },
 
-  options: {
-    styleIsolation: 'shared',
-  },
+  // options: {
+  //   styleIsolation: 'shared',
+  // },
   /**
    * 组件的初始数据
    */
@@ -35,6 +35,38 @@ Component({
     /**
      * 获取歌单列表
      */
+    // _getPlayList() {
+    //   wx.showLoading({
+    //     title: '加载中'
+    //   })
+    //   wx.cloud.callFunction({
+    //     name: 'music',
+    //     data: {
+    //       start: this.data.playlist.length,
+    //       count: MAX_LIMIT,
+    //       $url: 'getPlayList'
+    //     }
+    //   }).then(res => {
+    //     console.log('获取歌单', res)
+    //     if (res.result.errMsg !== 'collection.get:ok') {
+    //       console.log('获取歌单数据失败', res.errMsg)
+    //       wx.showToast({
+    //         title: '获取歌单数据失败',
+    //         icon: 'none'
+    //       })
+    //       return
+    //     }
+    //     this.setData({
+    //       playlist: this.data.playlist.concat(res.result.data)
+    //     })
+    //     wx.hideLoading({})
+    //     wx.stopPullDownRefresh({})
+    //   })
+    // },
+
+    /**
+     * 获取歌单列表
+     */
     _getPlayList() {
       wx.showLoading({
         title: '加载中'
@@ -42,8 +74,8 @@ Component({
       wx.cloud.callFunction({
         name: 'music',
         data: {
-          start: this.data.playlist.length,
-          count: MAX_LIMIT,
+          start: 0,
+          count: 10,
           $url: 'getPlayList'
         }
       }).then(res => {
@@ -63,6 +95,7 @@ Component({
         wx.stopPullDownRefresh({})
       })
     },
+
 
     /**
      * 获取轮播图
