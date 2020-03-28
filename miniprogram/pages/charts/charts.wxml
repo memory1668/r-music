@@ -7,3 +7,4 @@
   </view>
 </view>
 <r-musiclist musiclist="{{chartsList}}"></r-musiclist>
+<view wx:if="{{isEnd}}" class="end">已显示全部歌曲</view>

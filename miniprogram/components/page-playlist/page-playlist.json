@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "x-playlist": "/components/playlist/playlist",
-    "search": "/components/search/search"
+    "search": "/components/search/search",
+    "playlist-item": "/components/playlist-item/playlist-item"
   }
 }

@@ -53,18 +53,44 @@
 			<view class="text">歌手</view>
 		</view>
 	</view>
-	<!-- 歌单列表滑动区域 -->
+	<!-- 精选歌单 -->
 	<view class="playlist-container">
-		<!-- <block wx:for="{{playlist}}" wx:key="{{_id}}"> -->
-		<!-- <x-playlist playlistitem="{{item}}"></x-playlist> -->
-		<!-- </block> -->
+		<view class="top">
+			<view class="title">精选歌单</view>
+			<view class="more">更多</view>
+		</view>
+		<!-- 歌单列表滑动区域 -->
 		<scroll-view scroll-x="true" style="width: 100%">
 			<view class="playlist">
-				<view class="list-item" wx:for="{{playlist}}" wx:key="{{_id}}">
-					<image class="cover" src="{{item.picUrl}}"></image>
-					<view class="name">{{item.name}}</view>
-				</view>
+				<block wx:for="{{playlist}}" wx:key="{{_id}}">
+					<playlist-item playlistitem="{{item}}" />
+				</block>
 			</view>
 		</scroll-view>
 	</view>
+
+	<!-- 热门歌曲 -->
+	<view class="hot-container">
+		<view class="top">
+			<view class="title">热门歌曲</view>
+			<view class="more">更多</view>
+		</view>
+		<!-- 热门歌曲滑动区域 -->
+		<scroll-view scroll-x="true">
+			<view class="hot-list">
+				<block wx:for="{{chartsList}}" wx:key="{{id}}">
+					<view class="hot-item">
+						<!-- 专辑图 -->
+						<image class="cover" src="{{item.al.picUrl}}"></image>
+						<!-- 歌曲名称 -->
+						<view class="name">{{item.name}}</view>
+						<!-- 歌手 -->
+						<view class="singer">{{item.ar[0].name}}</view>
+					</view>
+				</block>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 占位 -->
+	<view style="height: 135px"></view>
 </scroll-view>

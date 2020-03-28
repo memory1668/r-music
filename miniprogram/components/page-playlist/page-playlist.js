@@ -20,12 +20,14 @@ Component({
       imageUrl: '',
       music: []
     },
-    playlist: []
+    playlist: [],
+    chartsList: []
   },
 
   attached() {
     this._getPlayList()
     this._getSwiper()
+    this._getCharts()
   },
 
   /**
@@ -171,6 +173,33 @@ Component({
     // 滚动到底部
     scrollToBottom() {
       this._getPlayList()
-    }
+    },
+
+    /**
+     * 获取热歌榜
+     */
+    _getCharts() {
+      wx.showLoading({
+        title: '加载中',
+      })
+      wx.cloud.callFunction({
+        name: 'music',
+        data: {
+          curPage: 1,
+          start: 0,
+          count: 10,
+          $url: 'charts'
+        }
+      }).then(res => {
+        console.log('获取热歌榜成功', res)
+        this.setData({
+          chartsList: this.data.chartsList.concat(res.result.chartsList),
+        })
+        wx.hideLoading()
+      }).catch(error => {
+        console.log('获取热歌榜失败', error)
+        wx.hideLoading()
+      })
+    },
   }
 })

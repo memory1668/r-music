@@ -65,7 +65,21 @@ exports.main = async(event, context) => {
   app.router('charts', async(ctx, next) => {
     ctx.body = await rp(BASE_URL + '/top/list?idx=1')
       .then((res) => {
-        return JSON.parse(res)
+        const list = JSON.parse(res).playlist.tracks
+        console.log('获取热歌榜', list)
+        const totalPage = Math.ceil(list.length/event.count)
+        let resList = []
+        // 加载最后一页数据
+        if(event.curPage === totalPage){
+          resList = list.slice(event.start, list.length)
+        }else {
+          resList = list.slice(event.start, event.start + event.count)
+        }
+        return {
+          chartsList: resList,
+          total: list.length,
+          totalPage: totalPage
+        }
       })
       .catch(error => {
         console.log('获取热歌榜失败', error)

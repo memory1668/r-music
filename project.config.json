@@ -117,12 +117,21 @@
 					"id": -1,
 					"name": "profile",
 					"pathName": "pages/profile/profile",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "settting",
 					"pathName": "pages/settting/settting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "热歌榜",
+					"pathName": "pages/charts/charts",
+					"query": "",
 					"scene": null
 				}
 			]

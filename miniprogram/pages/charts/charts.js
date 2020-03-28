@@ -1,3 +1,5 @@
+let curPage = 1
+let totalPage = 0
 // pages/charts/charts.js
 Page({
 
@@ -6,7 +8,8 @@ Page({
    */
   data: {
     chartsList: [],
-    coverImgUrl: 'http://p1.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg'
+    coverImgUrl: 'http://p1.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg',
+    isEnd: false
   },
 
   /**
@@ -55,7 +58,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    if(curPage > totalPage){
+      this.setData({
+        isEnd: true
+      })
+      return
+    }
+    this._getCharts()
   },
 
   /**
@@ -75,15 +84,25 @@ Page({
     wx.cloud.callFunction({
       name: 'music',
       data: {
+        curPage,
+        start: this.data.chartsList.length,
+        count: 28,
         $url: 'charts'
       }
     }).then(res => {
       console.log('获取热歌榜成功', res)
-      const pl = res.result.playlist
+      if(curPage === 1){
+        // 先清空
+        this.setData({
+          chartsList: []
+        })
+      }
       this.setData({
-        chartsList: pl.tracks,
+        chartsList: this.data.chartsList.concat(res.result.chartsList),
       })
       this._setMusicList()
+      curPage ++
+      totalPage = res.result.totalPage
       wx.hideLoading()
     }).catch(error => {
       console.log('获取热歌榜失败', error)
