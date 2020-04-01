@@ -1,29 +1,7 @@
-<!-- 搜索热榜 -->
-<view class="search-hot">
-  <!-- 搜索 -->
-  <view class="search-container" bindtap="goSearch">
-    <search iconfont="iconfont" icon-sousuo="icon-sousuo" disabled="true"></search>
-  </view>
-  <!-- 排行榜 -->
-  <view class="charts-container" bindtap="goCharts">
-    <image src="/images/charts.png" mode="widthFix" class="charts-image"></image>
-  </view>
-  <!-- 历史记录 -->
-  <view class="history-container" bindtap="goHistory">
-    <image src="/images/history.png" mode="widthFix" class="history-image"></image>
-  </view>
-</view>
-<!-- 轮播图 -->
-<swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true" class="swiper">
-  <block wx:for="{{swipers}}" wx:key="{{index}}">
-    <swiper-item data-musicid="{{item.music.id}}" data-index="{{index}}" bindtap="onSelect">
-      <image src="{{item.imageUrl}}" class="img" mode="widthFix"></image>
-    </swiper-item>
-  </block>
-</swiper>
 <!-- 歌单列表 -->
 <view class="playlist-container">
   <block wx:for="{{playlist}}" wx:key="{{_id}}">
-    <x-playlist playlistitem="{{item}}"></x-playlist>
+    <!-- <x-playlist playlistitem="{{item}}"></x-playlist> -->
+    <playlist-item playlistitem="{{item}}" showMusicBackground="{{false}}"/>
   </block>
 </view>

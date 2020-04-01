@@ -33,7 +33,7 @@
 }
 
 .send-btn {
-  background-color: #d43c33;
+  background-color: #ffbe5a;
   color: #fff;
   font-size: 24rpx;
   margin-right: 20rpx;
@@ -99,5 +99,5 @@
 
 .icon-tingzhi, .icon-zanting1{
   font-size: 50px;
-  color: #ea702e;
+  color: #ffbe5a;
 }

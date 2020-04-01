@@ -25,7 +25,7 @@
 	<!-- 推荐最新专辑歌手 -->
 	<view class="music-entrance">
 		<!-- 推荐 -->
-		<view class="recommend ent-item">
+		<view class="recommend ent-item" bindtap="goRecommend">
 			<view class="image-container">
 				<image class="icon" src="/images/recommend.png"></image>
 			</view>
@@ -57,13 +57,13 @@
 	<view class="playlist-container">
 		<view class="top">
 			<view class="title">精选歌单</view>
-			<view class="more">更多</view>
+			<view class="more" bindtap="goPlaylist">更多</view>
 		</view>
 		<!-- 歌单列表滑动区域 -->
 		<scroll-view scroll-x="true" style="width: 100%">
 			<view class="playlist">
 				<block wx:for="{{playlist}}" wx:key="{{_id}}">
-					<playlist-item playlistitem="{{item}}" />
+					<playlist-item playlistitem="{{item}}" showMusicBackground="{{false}}"/>
 				</block>
 			</view>
 		</scroll-view>
@@ -73,19 +73,27 @@
 	<view class="hot-container">
 		<view class="top">
 			<view class="title">热门歌曲</view>
-			<view class="more">更多</view>
+			<view class="more" bindtap="goCharts">更多</view>
 		</view>
 		<!-- 热门歌曲滑动区域 -->
 		<scroll-view scroll-x="true">
 			<view class="hot-list">
 				<block wx:for="{{chartsList}}" wx:key="{{id}}">
 					<view class="hot-item">
+						<!-- 排名 -->
+						<view class="rank">
+							<image wx:if="{{index === 0}}" class="rank-image" src="/images/hot-one.png"></image>
+							<image wx:if="{{index === 1}}" class="rank-image" src="/images/hot-two.png"></image>
+							<image wx:if="{{index === 2}}" class="rank-image" src="/images/hot-three.png"></image>
+						</view>
 						<!-- 专辑图 -->
 						<image class="cover" src="{{item.al.picUrl}}"></image>
 						<!-- 歌曲名称 -->
 						<view class="name">{{item.name}}</view>
 						<!-- 歌手 -->
 						<view class="singer">{{item.ar[0].name}}</view>
+						<!-- 播放 -->
+						<image class="icon-play" src="/images/hot-play.png"></image>
 					</view>
 				</block>
 			</view>

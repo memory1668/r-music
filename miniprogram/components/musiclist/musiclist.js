@@ -4,7 +4,12 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    musiclist: Array
+    musiclist: Array,
+    // 是否热歌榜
+    isHot: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**

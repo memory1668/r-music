@@ -1,9 +1,9 @@
-<view class="playlist-item">
+<view class="playlist-item" bindtap="goToMusicList" style="margin-right:{{showMusicBackground?'60rpx':'20rpx'}};width:{{showMusicBackground?'auto':'216rpx'}}; margin-bottom:{{showMusicBackground?0:'30rpx'}};">
 	<image class="cover" src="{{playlistitem.picUrl}}"></image>
 	<view class="name">{{playlistitem.name}}</view>
 	<view class="play-count">
     <image class="count-background" src="/images/count-background.png"></image>
     <view class="count-text" style="left:{{playlistitem.playCount<10000000?'60rpx':'50rpx'}}">{{_count}}</view>
   </view>
-	<image class="playlist-background" src="/images/playlist-background.png"></image>
+	<image wx:if="{{showMusicBackground}}" class="playlist-background" src="/images/playlist-background.png"></image>
 </view>

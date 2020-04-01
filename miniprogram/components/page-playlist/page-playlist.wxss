@@ -137,6 +137,22 @@ image {
   flex-direction: column;
   align-items: center;
   margin-right: 22rpx;
+  position: relative;
+}
+
+/* .hot-item .rank {
+  color: #999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+.rank-image {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -6rpx;
+  left: 0;
 }
 
 .hot-item .cover {
@@ -148,12 +164,20 @@ image {
 .hot-item .name{
   color: #333333;
   font-size: 12px;
+  margin-top: 20rpx;
 }
 
 .hot-item .singer{
   color: #9D9D9E;
   font-size: 10px;
   margin-top: 10rpx;
+}
+
+.hot-item .icon-play {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 80rpx;
 }
 
 .playlist, .hot-list{

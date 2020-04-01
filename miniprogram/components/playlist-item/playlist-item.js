@@ -10,6 +10,10 @@ Component({
         name: '那些好听却记不起歌名的歌',
         playCount: 179162
       }
+    },
+    showMusicBackground: {
+      type: Boolean,
+      value: true
     }
   },
 
@@ -49,6 +53,15 @@ Component({
         let decimal = countStr.substring(countStr.length - 8, countStr.length - 8 + point)
         return parseFloat(parseInt(count/100000000) + '.' + decimal) + '亿'
       }
+    },
+
+        /**
+     * @description: 跳转到歌曲列表
+     */
+    goToMusicList() {
+      wx.navigateTo({
+        url: `/pages/musiclist/musiclist?playlistId=${this.data.playlistitem.id}`,
+      })
     }
   }
 })

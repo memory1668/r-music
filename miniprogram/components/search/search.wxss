@@ -28,7 +28,7 @@
 /* 搜索图标 */
 .find {
   position: absolute;
-  top: 50%;
-  transform: translate(16rpx, -50%);
-  color: #9f9f9f;
+  left: 16rpx;
+  width: 30rpx;
+  height: 30rpx;
 }

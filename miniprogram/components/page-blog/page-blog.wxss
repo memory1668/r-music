@@ -11,7 +11,7 @@
   background-color: #fff;
   height: 100rpx;
   position: fixed;
-  top: 0;
+  top: 25px;
   left: 0;
   width: 100%;
   z-index: 99;
@@ -36,7 +36,7 @@
 }
 
 .blog-list {
-  margin-top: 120rpx;
+  margin-top: 151rpx;
 }
 
 .blog-panel {

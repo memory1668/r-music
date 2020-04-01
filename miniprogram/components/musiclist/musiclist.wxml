@@ -1,6 +1,10 @@
 <block wx:for="{{musiclist}}" wx:key="id">
   <view class="musiclist-container {{playingId === item.id ? 'playing' : ''}}" bindtap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
-    <view class="musiclist-index playing-text">{{index+1}}</view>
+    <image class="music-num" wx:if="{{isHot && index === 0}}" src="/images/music-one.png"></image>
+    <image class="music-num" wx:if="{{isHot && index === 1}}" src="/images/music-two.png"></image>
+    <image class="music-num" wx:if="{{isHot && index === 2}}" src="/images/music-three.png"></image>
+    <view wx:if="{{index!==0&&index!==1&&index!==2&&isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
+    <view wx:if="{{!isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
     <view class="musiclist-info">
       <view class="musiclist-name playing-text">
         {{item.name}}

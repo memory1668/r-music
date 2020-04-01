@@ -1,0 +1,65 @@
+.netease-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.netease-logo {
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 82rpx;
+}
+
+.phone,
+.password {
+  position: relative;
+}
+
+.phone {
+  margin-top: 52rpx;
+}
+
+.password {
+  margin-top: 24rpx;
+}
+
+.phone .icon {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.password .icon {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.icon {
+  position: absolute;
+  left: 48rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input {
+  width: 572rpx;
+  min-height: 88rpx;
+  border: 1px solid #D8D8D8;
+  border-radius: 46px;
+  padding-left: 98rpx;
+}
+
+.btn-login {
+  width: 670rpx;
+  height: 92rpx;
+  border-radius:46px;
+  background-color: #ea2000;
+  color: #ffffff;
+  margin-top: 192rpx;
+}
+
+.auth {
+  color: #999999;
+  font-size: 12px;
+  margin-top: 32rpx;
+  margin-right: 200rpx;
+}

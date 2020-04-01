@@ -12,7 +12,7 @@ page{
 }
 
 .title{
-  background: #ea702e;
+  background: #ffbe5a;
   color: #fff;
   padding: 20rpx 30rpx;
   font-weight: bold;

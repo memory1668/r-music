@@ -4,10 +4,18 @@
   align-items: center;
 }
 
+.music-num{
+  width: 42rpx;
+  height: 72rpx;
+  margin-right: 40rpx;
+}
+
 .musiclist-index {
   color: #888;
   font-size: 34rpx;
   width: 80rpx;
+  box-sizing: border-box;
+  padding-left: 10rpx;
 }
 
 .musiclist-info {

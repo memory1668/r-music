@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/@vant/weapp/checkbox/index"
+  },
+  "navigationBarTitleText": "登录",
+  "navigationBarBackgroundColor": "#ea2000"
+}

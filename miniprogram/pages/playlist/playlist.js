@@ -30,7 +30,6 @@ Page({
    */
   onLoad: function(options) {
     this._getPlayList()
-    this._getSwiper()
   },
 
   /**
@@ -115,7 +114,8 @@ Page({
       this.setData({
         playlist: this.data.playlist.concat(res.result.data)
       })
-      wx.hideLoading({})
+    }).finally(()=>{
+      wx.hideLoading()
       wx.stopPullDownRefresh({})
     })
   },

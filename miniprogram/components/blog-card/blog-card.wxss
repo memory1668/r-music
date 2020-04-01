@@ -7,6 +7,10 @@
   display: flex;
 }
 
+.audio-container{
+  margin: 20rpx 0;
+}
+
 .nickname {
   font-size: 18px;
 }

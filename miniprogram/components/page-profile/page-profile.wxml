@@ -1,55 +1,78 @@
 <view class="body">
-  <view class="profile-header">
-    <view class="avatar-url">
-      <open-data type="userAvatarUrl"></open-data>
-    </view>
-    <open-data type="userNickName" class="nick-name"></open-data>
-  </view>
-  <view class="image-container">
+	<view class="profile-header">
+		<view class="user-info">
+			<view class="avatar-url">
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+			<view class="name-gender">
+				<view class="nick-name">
+					<open-data type="userNickName"></open-data>
+				</view>
+				<!-- 性别 -->
+				<image class="icon-gender" src="/images/male.png" />
+			</view>
+			<!-- 最近收藏动态统计 -->
+			<view class="statistic">
+				<view class="statistic-item">
+					<view class="num">19</view>
+					<view class="tag">最近</view>
+				</view>
+				<view class="statistic-item">
+					<view class="num">2</view>
+					<view class="tag">收藏</view>
+				</view>
+				<view class="statistic-item">
+					<view class="num">34</view>
+					<view class="tag">动态</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- <view class="image-container">
     <image src="/images/profile-background.png"></image>
-  </view>
+  </view> -->
 
-  <view class="nav">
-    <view class="nav-item">
-      <navigator class="content" hover-class="none" url="/pages/profile-history/profile-history">
-        <i class="iconfont icon-16 item-icon"></i>
-        <text class="text">最近播放</text>
-        <i class="iconfont icon-xiangyou"></i>
-      </navigator>
-    </view>
-    <view class="nav-item">
-      <navigator class="content" hover-class="none" url="/pages/profile-collect/profile-collect">
-        <i class="iconfont icon-shoucang11 item-icon"></i>
-        <text class="text">我的收藏</text>
-        <i class="iconfont icon-xiangyou"></i>
-      </navigator>
-    </view>
-    <view class="nav-item" style="">
-      <navigator class="content" hover-class="none" url="/pages/profile-blog/profile-blog">
-        <i class="iconfont icon-aircraft item-icon"></i>
-        <text class="text">我的发现</text>
-        <i class="iconfont icon-xiangyou"></i>
-      </navigator>
-    </view>
-    <view class="nav-item" bindtap="onHideBlog">
-      <!-- <navigator class="content" hover-class="none" url="/pages/settting/settting">
+	<view class="nav">
+		<view class="nav-item">
+			<navigator class="content" hover-class="none" url="/pages/profile-history/profile-history">
+				<i class="iconfont icon-16 item-icon"></i>
+				<text class="text">最近播放</text>
+				<i class="iconfont icon-xiangyou"></i>
+			</navigator>
+		</view>
+		<view class="nav-item">
+			<navigator class="content" hover-class="none" url="/pages/profile-collect/profile-collect">
+				<i class="iconfont icon-shoucang11 item-icon"></i>
+				<text class="text">我的收藏</text>
+				<i class="iconfont icon-xiangyou"></i>
+			</navigator>
+		</view>
+		<view class="nav-item" style="">
+			<navigator class="content" hover-class="none" url="/pages/profile-blog/profile-blog">
+				<i class="iconfont icon-aircraft item-icon"></i>
+				<text class="text">我的发现</text>
+				<i class="iconfont icon-xiangyou"></i>
+			</navigator>
+		</view>
+		<view class="nav-item" bindtap="onHideBlog">
+			<!-- <navigator class="content" hover-class="none" url="/pages/settting/settting">
       <i class="iconfont icon-zhifeiji item-icon"></i>
       <text class="text">设置</text>
         <i class="iconfont icon-xiangyou"></i>
       <i class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxingbeifen"></i>
     </navigator> -->
-      <view class="content" hover-class="none" url="/pages/settting/settting">
-        <i class="iconfont icon-shezhi item-icon"></i>
-        <text class="text">设置</text>
-        <i class="iconfont icon-xiangyou"></i>
-      </view>
-    </view>
-    <view class="nav-item content" bindtap="onTapQrCode">
-      <!-- <navigator class="content" hover-class="none" url=""> -->
-      <i class="iconfont icon-saoma item-icon"></i>
-      <text class="text">生成小程序码</text>
-        <i class="iconfont icon-xiangyou"></i>
-      <!-- </navigator> -->
-    </view>
-  </view>
+			<view class="content" hover-class="none" url="/pages/settting/settting">
+				<i class="iconfont icon-shezhi item-icon"></i>
+				<text class="text">设置</text>
+				<i class="iconfont icon-xiangyou"></i>
+			</view>
+		</view>
+		<view class="nav-item content" bindtap="onTapQrCode">
+			<!-- <navigator class="content" hover-class="none" url=""> -->
+			<i class="iconfont icon-saoma item-icon"></i>
+			<text class="text">生成小程序码</text>
+			<i class="iconfont icon-xiangyou"></i>
+			<!-- </navigator> -->
+		</view>
+	</view>
 </view>

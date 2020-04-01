@@ -3,6 +3,8 @@
   /* background-color: #eb8b58; */
   display: flex;
   align-items: center;
+  width: 80%;
+  position: relative;
 }
 
 .abslute {
@@ -16,7 +18,7 @@
 
 .control-container {
   background-color: #ffbe5a;
-  padding: 10rpx;
+  padding: 13rpx;
 }
 
 .icon-control {
@@ -34,4 +36,23 @@
   width: 76rpx;
   height: 30rpx;
   box-sizing: border-box;
+  margin-left: 70rpx;
+}
+
+.yinbo {
+  display: flex;
+  position: absolute;
+  right: 25rpx;
+}
+
+.yinbo image {
+  width: 55rpx;
+  height: 43rpx;
+  margin-right: 11rpx;
+}
+
+.slider-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

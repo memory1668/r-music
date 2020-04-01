@@ -1,0 +1,20 @@
+<view class="netease-auth">
+	<!-- 网易云音乐logo -->
+	<image class="netease-logo" src="/images/netease-logo.png"></image>
+	<form bindsubmit="handleSubmit">
+		<view class="phone">
+			<image class="icon" src="/images/icon-phone.png"></image>
+			<input class="input" placeholder="请输入手机号" name="phone"></input>
+		</view>
+
+		<view class="password">
+			<image class="icon" src="/images/icon-password.png"></image>
+			<input class="input" placeholder="请输入密码" type="password" name="password"></input>
+		</view>
+		<button class="btn-login"  form-type="submit">登录</button>
+	</form>
+	<!-- 同意授权 -->
+	<view class="auth">
+		<van-checkbox value="{{ checked }}" checked-color="#ea2000" icon-size="12px" bind:change="checkChange">同意获取您网易云音乐账号的信息</van-checkbox>
+	</view>
+</view>

@@ -6,5 +6,5 @@
     <view class="detail-nm">热歌榜TOP200</view>
   </view>
 </view>
-<r-musiclist musiclist="{{chartsList}}"></r-musiclist>
+<r-musiclist musiclist="{{chartsList}}" isHot="{{true}}"></r-musiclist>
 <view wx:if="{{isEnd}}" class="end">已显示全部歌曲</view>

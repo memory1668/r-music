@@ -133,6 +133,20 @@
 					"pathName": "pages/charts/charts",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推荐",
+					"pathName": "pages/recommend/recommend",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/netease-auth/netease-auth",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

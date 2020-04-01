@@ -201,5 +201,33 @@ Component({
         wx.hideLoading()
       })
     },
+
+    /**
+     * 跳转到热歌榜
+     */
+    goCharts() {
+      wx.navigateTo({
+        url: '/pages/charts/charts',
+      })
+    },
+
+    /**
+     * 跳转到歌单列表页面
+     */
+    goPlaylist() {
+      wx.navigateTo({
+        url: '/pages/playlist/playlist',
+      })
+    },
+
+    
+    /**
+     * 跳转到歌曲推荐页面
+     */
+    goRecommend(){
+      wx.navigateTo({
+        url: '/pages/recommend/recommend'
+      })
+    }
   }
 })

@@ -1,13 +1,21 @@
 <view class="audio-player">
-  <view class="control-container">
-    <!-- 暂停 -->
-    <image wx:if="{{isPlaying}}" class="icon-control" src="/images/pause.png" catchtap="play"></image>
-    <!-- 播放 -->
-    <image wx:else class="icon-control" src="/images/play.png" catchtap="play"></image>
+	<view class="control-container">
+		<!-- 暂停 -->
+		<image wx:if="{{isPlaying}}" class="icon-control" src="/images/pause.png" catchtap="play"></image>
+		<!-- 播放 -->
+		<image wx:else class="icon-control" src="/images/play.png" catchtap="play"></image>
+	</view>
+  <!-- 条形音浪 -->
+  <view class="yinbo">
+    <image src="/images/yinbo.png"></image>
+    <image src="/images/yinbo.png"></image>
+    <image src="/images/yinbo.png"></image>
   </view>
+	<view class="slider-container">
+		<van-slider value="{{sliderDistance}}" active-color="#ffbe5a" bind:change="onChange" bind:drag-start="dragStart" bind:drag-end="dragEnd" use-button-slot>
+			<view class="custom-button" slot="button">
+				{{currentTime}}
+			</view>
+		</van-slider>
+	</view>
 </view>
-<van-slider value="{{sliderDistance}}" active-color="#ffbe5a" bind:change="onChange" bind:drag-start="dragStart" bind:drag-end="dragEnd"  use-button-slot>
-   <view class="custom-button" slot="button">
-    {{currentTime}}
-  </view>
-</van-slider>   

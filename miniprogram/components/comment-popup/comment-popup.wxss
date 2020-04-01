@@ -4,7 +4,7 @@
 }
 
 .send {
-  background-color: #d43c33;
+  background-color: #ffbe5a;
   color: #fff;
   font-size: 24rpx;
   margin-right: 20rpx;
