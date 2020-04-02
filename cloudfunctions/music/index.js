@@ -90,7 +90,7 @@ exports.main = async (event, context) => {
   // 获取推荐歌曲
   app.router('recommend', async (ctx, next) => {
     console.log('推荐歌曲');
-
+    const cookie = event.cookie
     // ctx.body = await rp(BASE_URL + '/recommend/songs')
     //   .then((res) => {
     //     const reuslt = JSON.parse(res)
@@ -109,11 +109,11 @@ exports.main = async (event, context) => {
     //     // throw err.error
     //     return err.error
     //   })
-    let cookie_2 = rp.cookie('MUSIC_U=2a2f67309ff7bc98f12acdc5df29fc67902b951e61a8a197b1ffd3ef565060f809eb34a76fe55d58c254abada9be137263531a931aa80ad0');
+    let cookie_2 = rp.cookie(cookie[0]);
     console.log(cookie_2);
-    let cookie_1 = rp.cookie('__remember_me=true');
+    let cookie_1 = rp.cookie(cookie[1]);
     console.log(cookie_1);
-    let cookie_0 = rp.cookie('__csrf=43abb7844dc9e51d86c316aab27ef074');
+    let cookie_0 = rp.cookie(cookie[2]);
     console.log(cookie_0);
     let cookiejar = rp.jar();
     cookiejar.setCookie(cookie_2,  BASE_URL);
@@ -124,10 +124,24 @@ exports.main = async (event, context) => {
       method: 'GET',
       jar: cookiejar
     };
-    await rp(options).then(function (body) {
-      console.log('推荐歌曲成功', body);
+    ctx.body = await rp(options).then( res=> {
+      console.log('推荐歌曲成功', res);
+      const reuslt = JSON.parse(res)
+      if(reuslt.code === 200){
+        return {
+          code: 200,
+          msg: 'success',
+          recommend: reuslt.recommend
+        }
+      }else {
+        return {
+          code: 500,
+          msg: reuslt
+        }
+      }
     }).catch(err=>{
       console.log('推荐歌曲失败', err);
+      return err.error
     })
   })
   return app.serve()

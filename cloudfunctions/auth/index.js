@@ -26,12 +26,23 @@ exports.main = async (event, context) => {
   // return result
 
   var options = {
-    uri: BASE_URL + `/login/cellphone?phone=15219892251&password=mxtestmusic`,
+    uri: BASE_URL + `/login/cellphone?phone=${event.phone}&password=${event.password}`,
     transform: function (body, res, resolveWithFullResponse) {
-      return res['headers']['set-cookie'] 
+      // return res['headers']['set-cookie']
+      return res['headers']['set-cookie']
     }
   };
 
-  const cookie = await rp(options)
-  console.log('cookie', cookie)
+  const result = await rp(options).then(res => {
+    console.log('登录成功', res)
+    return {
+      code: 200,
+      msg: 'success',
+      cookie: res
+    }
+  }).catch(err => {
+    console.log('登录失败', err)
+    return err.error
+  })
+  return result
 }

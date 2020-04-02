@@ -83,18 +83,29 @@ Page({
         password,
         $url: 'getPlayList'
       }
-    }).then(res=>{
+    }).then(res => {
       console.log('登录成功', res)
-      const result = typeof res.result === 'String' ? JSON.parse(res.result) : res.result
-      if (result.code !== 200) {
+      const result = typeof res.result === 'string' ? JSON.parse(res.result) : res.result
+      if (result.code === 502 || result.code !== 200) {
         wx.showToast({
-          title: result.msg? result.msg: '登录失败，请重试',
+          title: result.msg ? result.msg : '登录失败，请重试',
           icon: 'none'
         })
         return
       }
-    }).catch(err=>{
+      this.setCookie(result.cookie)
+      wx.redirectTo({
+        url: '/pages/recommend/recommend'
+      })
+    }).catch(err => {
       console.log('登录失败', err)
     })
+  },
+
+  /**
+   * 保存cookie在缓存
+   */
+  setCookie(cookie) {
+    wx.setStorageSync('cookie', cookie)
   }
 })

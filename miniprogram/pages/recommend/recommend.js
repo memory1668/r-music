@@ -69,17 +69,27 @@ Page({
    */
   getRecommendList() {
     wx.showLoading()
+    const cookie = wx.getStorageSync('cookie')
+    if (!cookie) {
+      wx.redirectTo({
+        url: '/pages/netease-auth/netease-auth'
+      })
+      return
+    }
+
     wx.cloud.callFunction({
       name: 'music',
       data: {
+        cookie,
         $url: 'recommend'
       }
     }).then(res => {
-      console.log('推荐歌曲', res.result)
-      const result = JSON.parse(res.result)
+      console.log('推荐歌曲', res)
+      const result = typeof res.result === 'string' ? JSON.parse(res.result) : res.result
+      console.log('result', result, typeof res.result)
       // 没登录
       if (result.code === 301) {
-        console.log('没登录')
+        console.log('没登录', result)
         wx.redirectTo({
           url: '/pages/netease-auth/netease-auth'
         })
