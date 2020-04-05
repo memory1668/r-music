@@ -24,7 +24,7 @@
 	},
 	"appid": "wx279fdac86ddf01cf",
 	"projectname": "music",
-	"libVersion": "2.10.4",
+	"libVersion": "2.10.3",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -68,7 +68,7 @@
 					"id": 2,
 					"name": "musiclist",
 					"pathName": "pages/musiclist/musiclist",
-					"query": "playlistId=456087080",
+					"query": "playlistId= 2714223742&playCount=700万",
 					"scene": null
 				},
 				{
@@ -146,6 +146,13 @@
 					"name": "登录",
 					"pathName": "pages/netease-auth/netease-auth",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test",
+					"query": "playlistId= 2714223742&playCount=700万",
 					"scene": null
 				}
 			]

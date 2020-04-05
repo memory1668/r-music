@@ -5,10 +5,37 @@ Component({
    */
   properties: {
     musiclist: Array,
+    coverImgUrl: {
+      type: String,
+      value: ''
+    },
+    name: {
+      type: String,
+      value: ''
+    },
+    playCount: {
+      type: String,
+      value: ''
+    },
     // 是否热歌榜
     isHot: {
       type: Boolean,
       value: false
+    },
+
+    isShowSticky: {
+      type: Boolean,
+      value: false
+    },
+
+    isShowTotop: {
+      type: Boolean,
+      value: false
+    },
+
+    listType: {
+      type: String,
+      value: 'playList'
     }
   },
 
@@ -16,7 +43,20 @@ Component({
    * 组件的初始数据
    */
   data: {
-    playingId: -1 // 当前选中的音乐id
+    playingId: -1, // 当前选中的音乐id
+    navtop: 0
+  },
+
+  lifetimes: {
+    ready() {
+      this.createSelectorQuery().select('#list-header').boundingClientRect(res => {
+        console.log('节点的上边界坐标', res.top)
+        this.triggerEvent('getNavTop', res.top)
+        this.setData({
+          navtop: res.top
+        })
+      }).exec()
+    }
   },
 
   pageLifetimes: {
@@ -46,6 +86,19 @@ Component({
       // 跳转到音乐播放页面
       wx.navigateTo({
         url: `/pages/player/player?musicId=${musicid}&index=${ds.index}`,
+      })
+    },
+
+    playAll() {
+      this.createSelectorQuery().select('#list-header').boundingClientRect(function (rect) {
+        console.log('节点的上边界坐标', rect)
+      }).exec()
+    },
+
+    scrollToTop() {
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 300
       })
     }
   }

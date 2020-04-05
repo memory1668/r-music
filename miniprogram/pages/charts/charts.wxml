@@ -1,10 +1,10 @@
-<view class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover"></view>
+<!-- <view class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover"></view>
 <view class="detail-mask"></view>
 <view class="detail-info">
   <image src="{{coverImgUrl}}" class="detail-img"></image>
   <view class="detail">
     <view class="detail-nm">热歌榜TOP200</view>
   </view>
-</view>
-<r-musiclist musiclist="{{chartsList}}" isHot="{{true}}"></r-musiclist>
+</view> -->
+<r-musiclist listType="hotList" musiclist="{{chartsList}}" isHot="{{true}}"  coverImgUrl="{{coverImgUrl}}" name="热歌榜TOP200"  bind:getNavTop="getNavTop" isShowTotop="{{isShowTotop}}"></r-musiclist>
 <view wx:if="{{isEnd}}" class="end">已显示全部歌曲</view>

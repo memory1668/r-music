@@ -1,4 +1,6 @@
 // pages/musiclist/musiclist.js
+import transCount from '../../utils/transCount.js'
+let navtop = 0
 Page({
 
   /**
@@ -6,7 +8,13 @@ Page({
    */
   data: {
     musiclist: [], // 音乐列表
-    listInfo: {} // 歌单信息
+    listInfo: {
+      coverImgUrl: '',
+      name: '',
+      playCount: ''
+    }, // 歌单信息
+    isShowSticky: false,
+    isShowTotop: false
   },
 
   /**
@@ -14,6 +22,10 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    const playCount = "listInfo.playCount"
+    this.setData({
+      [playCount]: options.playCount
+    })
     wx.showLoading({
       title: '加载中',
     })
@@ -30,6 +42,7 @@ Page({
       this.setData({
         musiclist: pl.tracks,
         listInfo: {
+          ...this.data.listInfo,
           coverImgUrl: pl.coverImgUrl,
           name: pl.name
         }
@@ -91,10 +104,42 @@ Page({
 
   },
 
+  onPageScroll(e) {
+    console.log('onPageScroll', e.scrollTop, navtop)
+    if (e.scrollTop >= navtop && this.data.isShowSticky === false) {
+      console.log('isShowSticky', this.data.isShowSticky)
+      this.setData({
+        isShowSticky: true
+      })
+    }else if(e.scrollTop < navtop && this.data.isShowSticky === true){
+      this.setData({
+        isShowSticky: false
+      })
+    }
+    if(e.scrollTop > 2500 && this.data.isShowTotop === false){
+      this.setData({
+        isShowTotop: true
+      })
+    }
+    else if(e.scrollTop < 2500 && this.data.isShowTotop === true){
+      this.setData({
+        isShowTotop: false
+      })
+    }
+  },
+
   /**
    * 将当前音乐列表存储在缓存
    */
   _setMusicList() {
     wx.setStorageSync('musiclist', this.data.musiclist)
+  },
+
+  /**
+   * 获取列表头部到顶部的距离
+   */
+  getNavTop(data){
+    console.log('获取列表头部到顶部的距离', data.detail)
+    navtop = data.detail
   }
 })

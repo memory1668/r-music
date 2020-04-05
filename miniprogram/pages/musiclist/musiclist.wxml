@@ -1,9 +1,1 @@
-<view class="detail-container" style="background: url({{listInfo.coverImgUrl}}) no-repeat top/cover"></view>
-<view class="detail-mask"></view>
-<view class="detail-info">
-  <image src="{{listInfo.coverImgUrl}}" class="detail-img"></image>
-  <view class="detail">
-    <view class="detail-nm">{{listInfo.name}}</view>
-  </view>
-</view>
-<r-musiclist musiclist="{{musiclist}}"></r-musiclist>
+<r-musiclist musiclist="{{musiclist}}" coverImgUrl="{{listInfo.coverImgUrl}}" name="{{listInfo.name}}" playCount="{{listInfo.playCount}}" isShowSticky="{{isShowSticky}}" bind:getNavTop="getNavTop" isShowTotop="{{isShowTotop}}"></r-musiclist>

@@ -1,16 +1,47 @@
-<block wx:for="{{musiclist}}" wx:key="id">
-  <view class="musiclist-container {{playingId === item.id ? 'playing' : ''}}" bindtap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
-    <image class="music-num" wx:if="{{isHot && index === 0}}" src="/images/music-one.png"></image>
-    <image class="music-num" wx:if="{{isHot && index === 1}}" src="/images/music-two.png"></image>
-    <image class="music-num" wx:if="{{isHot && index === 2}}" src="/images/music-three.png"></image>
-    <view wx:if="{{index!==0&&index!==1&&index!==2&&isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
-    <view wx:if="{{!isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
-    <view class="musiclist-info">
-      <view class="musiclist-name playing-text">
-        {{item.name}}
-        <text class="musiclist-alia playing-text">{{item.alia.length == 0 ? "" : item.alia[0]}}</text>
-      </view>
-      <view class="musiclist-singer playing-text">{{item.ar[0].name}} - {{item.al.name}}</view>
-    </view>
-  </view>
-</block>
+<view class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover;"></view>
+<view class="detail-mask"></view>
+<!-- 列表信息 -->
+<view class="detail-info" style="align-items:{{listType === 'hotList' ? 'center':'flex-start'}}">
+	<image src="{{coverImgUrl}}" class="detail-img" id="cover-img"></image>
+	<view class="detail" >
+		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
+			<image class="icon" src="/images/ear-phone.png"></image>
+			<text class="text">{{playCount}}</text>
+		</view>
+		<view class="detail-nm">{{name}}</view>
+	</view>
+</view>
+
+
+<!-- 歌曲列表 -->
+<view class="list">
+	<view class="list-header" id="list-header" style="position: sticky">
+		<view class="title-container">
+			<text class="title">播放列表</text>
+			<text class="list-length" wx:if="{{listType !== 'hotList'}}">（共{{musiclist.length}}首）</text>
+		</view>
+		<!-- 播放全部按钮 -->
+		<view class="playall-container align-items-center" bindtap="playAll">
+			<image class="icon-playall" src="/images/icon-playall.png"></image>
+			<text class="playall-text">播放全部</text>
+		</view>
+	</view>
+	<block wx:for="{{musiclist}}" wx:key="id">
+		<view class="musiclist-item {{playingId === item.id ? 'playing' : ''}}" bindtap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
+			<image class="music-num" wx:if="{{isHot && index === 0}}" src="/images/music-one.png"></image>
+			<image class="music-num" wx:if="{{isHot && index === 1}}" src="/images/music-two.png"></image>
+			<image class="music-num" wx:if="{{isHot && index === 2}}" src="/images/music-three.png"></image>
+			<view wx:if="{{index!==0&&index!==1&&index!==2&&isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
+			<view wx:if="{{!isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
+			<view class="musiclist-info">
+				<view class="musiclist-name playing-text">
+					{{item.name}}
+					<text class="musiclist-alia playing-text">{{item.alia.length == 0 ? "" : item.alia[0]}}</text>
+				</view>
+				<view class="musiclist-singer playing-text">{{item.ar[0].name}} - {{item.al.name}}</view>
+			</view>
+		</view>
+	</block>
+</view>
+<!-- 回到顶部按钮 -->
+<image wx:if="{{isShowTotop}}" class="icon-totop" src="/images/totop.png" bindtap="scrollToTop"></image>

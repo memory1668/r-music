@@ -30,13 +30,14 @@
   height: 320rpx;
   padding: 20rpx;
   box-sizing: border-box;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .detail {
   flex-grow: 1;
   line-height: 60rpx;
   width: 0;
+
 }
 
 .detail view {
@@ -47,4 +48,18 @@
 .detail .detail-nm {
   font-size: 36rpx;
   font-weight: 400;
+}
+
+.play-count {
+  display: flex;
+  align-items: center;
+}
+.play-count .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.play-count .text {
+  font-size: 13px;
 }
