@@ -1,7 +1,7 @@
-<view class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover;"></view>
-<view class="detail-mask"></view>
+<view wx:if="{{listType !== 'searchList'}}" class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover;"></view>
+<view wx:if="{{listType !== 'searchList'}}" class="detail-mask"></view>
 <!-- 列表信息 -->
-<view class="detail-info" style="align-items:{{listType === 'hotList' ? 'center':'flex-start'}}">
+<view wx:if="{{listType !== 'searchList'}}" class="detail-info" style="align-items:{{listType === 'hotList' ? 'center':'flex-start'}}">
 	<image src="{{coverImgUrl}}" class="detail-img" id="cover-img"></image>
 	<view class="detail" >
 		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
@@ -15,7 +15,7 @@
 
 <!-- 歌曲列表 -->
 <view class="list">
-	<view class="list-header" id="list-header" style="position: sticky">
+	<view wx:if="{{listType !== 'searchList'}}" class="list-header" id="list-header" style="position: sticky">
 		<view class="title-container">
 			<text class="title">播放列表</text>
 			<text class="list-length" wx:if="{{listType !== 'hotList'}}">（共{{musiclist.length}}首）</text>

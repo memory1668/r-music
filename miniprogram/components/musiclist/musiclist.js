@@ -49,6 +49,7 @@ Component({
 
   lifetimes: {
     ready() {
+     if(this.data.listType !== 'searchList'){
       this.createSelectorQuery().select('#list-header').boundingClientRect(res => {
         console.log('节点的上边界坐标', res.top)
         this.triggerEvent('getNavTop', res.top)
@@ -56,6 +57,7 @@ Component({
           navtop: res.top
         })
       }).exec()
+     }
     }
   },
 
