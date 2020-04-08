@@ -1,1 +1,1 @@
-<r-musiclist musiclist="{{musiclist}}" coverImgUrl="{{listInfo.coverImgUrl}}" name="{{listInfo.name}}" playCount="{{listInfo.playCount}}" isShowSticky="{{isShowSticky}}" bind:getNavTop="getNavTop" isShowTotop="{{isShowTotop}}"></r-musiclist>
+<r-musiclist listType="playList" musiclist="{{musiclist}}" coverImgUrl="{{listInfo.coverImgUrl}}" name="{{listInfo.name}}" playCount="{{listInfo.playCount}}" isShowSticky="{{isShowSticky}}" bind:getNavTop="getNavTop" isShowTotop="{{isShowTotop}}"></r-musiclist>

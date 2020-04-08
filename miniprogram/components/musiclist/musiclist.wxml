@@ -1,9 +1,9 @@
 <view wx:if="{{listType !== 'searchList'}}" class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover;"></view>
 <view wx:if="{{listType !== 'searchList'}}" class="detail-mask"></view>
 <!-- 列表信息 -->
-<view wx:if="{{listType !== 'searchList'}}" class="detail-info" style="align-items:{{listType === 'hotList' ? 'center':'flex-start'}}">
+<view wx:if="{{listType !== 'searchList'}}" class="detail-info" style="align-items:{{playCount === '' ? 'center':'flex-start'}}">
 	<image src="{{coverImgUrl}}" class="detail-img" id="cover-img"></image>
-	<view class="detail" >
+	<view class="detail">
 		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
 			<image class="icon" src="/images/ear-phone.png"></image>
 			<text class="text">{{playCount}}</text>
@@ -28,17 +28,27 @@
 	</view>
 	<block wx:for="{{musiclist}}" wx:key="id">
 		<view class="musiclist-item {{playingId === item.id ? 'playing' : ''}}" bindtap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
-			<image class="music-num" wx:if="{{isHot && index === 0}}" src="/images/music-one.png"></image>
-			<image class="music-num" wx:if="{{isHot && index === 1}}" src="/images/music-two.png"></image>
-			<image class="music-num" wx:if="{{isHot && index === 2}}" src="/images/music-three.png"></image>
-			<view wx:if="{{index!==0&&index!==1&&index!==2&&isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
-			<view wx:if="{{!isHot}}" class="musiclist-index playing-text">{{index+1}}.</view>
+			<!-- 排行榜序号 -->
+			<view wx:if="{{listType === 'hotList'}}" class="musiclist-index">
+				<image class="music-num" wx:if="{{ index === 0}}" src="/images/music-one.png"></image>
+				<image class="music-num" wx:if="{{index === 1}}" src="/images/music-two.png"></image>
+				<image class="music-num" wx:if="{{index === 2}}" src="/images/music-three.png"></image>
+				<view wx:if="{{index!==0&&index!==1&&index!==2}}" class="playing-text">{{index+1}}</view>
+			</view>
+			<!-- 推荐歌曲图片 -->
+			<view wx:elif="{{listType === 'recommendList'}}" class="musiclist-index">
+				<image class="index-image" src="{{item.al?item.al.picUrl:item.album.picUrl}}"></image>
+			</view>
+			<!-- 通用序号 -->
+			<view wx:else class="musiclist-index playing-text">{{index+1}}</view>
+			<!-- 歌曲信息 -->
 			<view class="musiclist-info">
 				<view class="musiclist-name playing-text">
 					{{item.name}}
+					<!-- 别名 -->
 					<text class="musiclist-alia playing-text">{{item.alia.length == 0 ? "" : item.alia[0]}}</text>
 				</view>
-				<view class="musiclist-singer playing-text">{{item.ar[0].name}} - {{item.al.name}}</view>
+				<view class="musiclist-singer playing-text">{{item.ar?item.ar[0].name:item.artists[0].name}} - {{item.al?item.al.name:item.album.name}}</view>
 			</view>
 		</view>
 	</block>

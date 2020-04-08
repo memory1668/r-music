@@ -124,15 +124,24 @@
 .music-num {
   width: 42rpx;
   height: 72rpx;
-  margin-right: 40rpx;
+  /* margin-right: 40rpx; */
 }
 
 .musiclist-index {
   color: #888;
   font-size: 34rpx;
+  min-width: 60rpx;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-image{
   width: 80rpx;
-  box-sizing: border-box;
-  padding-left: 10rpx;
+  height: 80rpx;
+  border-radius: 5px;
+  display: block;
 }
 
 .musiclist-info {

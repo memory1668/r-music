@@ -17,11 +17,6 @@ Component({
       type: String,
       value: ''
     },
-    // 是否热歌榜
-    isHot: {
-      type: Boolean,
-      value: false
-    },
 
     isShowSticky: {
       type: Boolean,
@@ -39,6 +34,13 @@ Component({
     }
   },
 
+  observers: {
+    musiclist(val) {
+      // console.log('observers', val)
+      this._setMusicList(val)
+    }
+  },
+
   /**
    * 组件的初始数据
    */
@@ -49,15 +51,15 @@ Component({
 
   lifetimes: {
     ready() {
-     if(this.data.listType !== 'searchList'){
-      this.createSelectorQuery().select('#list-header').boundingClientRect(res => {
-        console.log('节点的上边界坐标', res.top)
-        this.triggerEvent('getNavTop', res.top)
-        this.setData({
-          navtop: res.top
-        })
-      }).exec()
-     }
+      if (this.data.listType !== 'searchList') {
+        this.createSelectorQuery().select('#list-header').boundingClientRect(res => {
+          console.log('节点的上边界坐标', res.top)
+          this.triggerEvent('getNavTop', res.top)
+          this.setData({
+            navtop: res.top
+          })
+        }).exec()
+      }
     }
   },
 
@@ -102,6 +104,15 @@ Component({
         scrollTop: 0,
         duration: 300
       })
+    },
+
+    /**
+     * 将当前音乐列表存储在缓存
+     */
+    _setMusicList(musiclist) {
+      if (musiclist.length === 0) return
+      console.log('将当前音乐列表存储在缓存', this.data.musiclist)
+      wx.setStorageSync('musiclist', musiclist)
     }
   }
 })

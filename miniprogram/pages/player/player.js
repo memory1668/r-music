@@ -26,7 +26,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     console.log(options)
     // 读取缓存中的音乐列表
     list = wx.getStorageSync('musiclist')
@@ -41,34 +41,34 @@ Page({
     })
     console.log('isSame', this.data.isSame, parseInt(options.musicId), app.getPlayingMusicId())
     this._loadMusicDetail(musicId)
-    this._initPlayMode() 
+    this._initPlayMode()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
     app.globalData.isPlaying = this.data.isPlaying
     console.log('onUnload', app.globalData.isPlaying)
   },
@@ -76,21 +76,21 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
@@ -104,7 +104,7 @@ Page({
       backgroundAudioManager.stop()
     }
 
-    let music = list[curIndex]// 当前正在播放的歌曲
+    let music = list[curIndex] // 当前正在播放的歌曲
     // 设置全局当前正在播放的音乐id
     app.setPlayingMusicId(musicId)
 
@@ -132,13 +132,13 @@ Page({
     }).catch(err => {
       console.log('歌曲专辑图片失败', err)
     })
-    
+
     this.setData({
       picUrl,
       // isPlaying: false
-      isCollected: collectList.some(item=>{
+      isCollected: collectList.some(item => {
         return item.id === musicId
-      })// 是否收藏
+      }) // 是否收藏
     })
 
 
@@ -163,9 +163,10 @@ Page({
         return
       }
       if (!this.data.isSame) {
-        let singer = music.ar[0].name
-        if (music.ar.length > 1) {
-          music.ar.forEach((item, index) => {
+        const artists = music.ar ? music.ar : music.artists
+        let singer = artists[0].name
+        if (artists.length > 1) {
+          artists.forEach((item, index) => {
             if (index !== 0)
               singer = singer + '/' + item.name
           })
@@ -174,7 +175,7 @@ Page({
         backgroundAudioManager.title = music.name
         backgroundAudioManager.coverImgUrl = picUrl
         backgroundAudioManager.singer = singer
-        backgroundAudioManager.epname = music.al.name
+        backgroundAudioManager.epname = music.al ? music.al.name : music.album.name
 
         this.savePlayHistory()
       }
@@ -222,12 +223,12 @@ Page({
   _initPlayMode() {
     const count = wx.getStorageSync('count')
     // 初始化缓存
-    if (!count){
+    if (!count) {
       wx.setStorage({
         key: 'count',
         data: 0
       })
-    }else{
+    } else {
       this.setData({
         count
       })
@@ -347,16 +348,16 @@ Page({
     let collectList = []
     if (this.data.isCollected) {
       db.collection('collect').where({
-          id: musicId
+        id: musicId
       }).remove().then(res => {
         console.log('取消收藏成功', res)
-        if(res.stats.removed > 0){
+        if (res.stats.removed > 0) {
           this.setData({
             isCollected: false
           })
           // 更新缓存收藏列表
           collectList = wx.getStorageSync('collectList')
-          const index = collectList.findIndex(item=>{
+          const index = collectList.findIndex(item => {
             return item.id === musicId
           })
           collectList.splice(index, 1)
@@ -364,8 +365,7 @@ Page({
             key: 'collectList',
             data: collectList
           })
-        }
-        else {
+        } else {
           throw '取消收藏失败' + res.errMsg
         }
       }).catch(err => {
@@ -422,19 +422,19 @@ Page({
    */
   musicEnd() {
     // 如果循环模式是列表循环
-    if(this.data.count%3===0){
+    if (this.data.count % 3 === 0) {
       this.onNext()
     }
     // 单曲循环
-    else if (this.data.count % 3 === 1){
-      curIndex --
+    else if (this.data.count % 3 === 1) {
+      curIndex--
       this.onNext()
       console.log('单曲循环')
       // backgroundAudioManager.stop()
       // backgroundAudioManager.play()
-    } else if (this.data.count % 3 === 2){
+    } else if (this.data.count % 3 === 2) {
       // 随机生成音乐索引
-      curIndex = parseInt(Math.random()*list.length, 10)
+      curIndex = parseInt(Math.random() * list.length, 10)
       console.log('随机生成音乐索引', curIndex)
       this.onNext()
     }

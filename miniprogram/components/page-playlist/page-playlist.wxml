@@ -32,7 +32,7 @@
 			<view class="text">推荐</view>
 		</view>
 		<!-- 最新 -->
-		<view class="new ent-item">
+		<view class="new ent-item" bindtap="goNewsong">
 			<view class="image-container">
 				<image class="icon" src="/images/new.png"></image>
 			</view>

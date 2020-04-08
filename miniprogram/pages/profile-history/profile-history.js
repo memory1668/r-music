@@ -76,10 +76,10 @@ Page({
       })
     }
     // 调整当前的播放列表
-    wx.setStorage({
-      data: history,
-      key: 'musiclist'
-    })
+    // wx.setStorage({
+    //   data: history,
+    //   key: 'musiclist'
+    // })
     this.setData({
       musicList: history
     })

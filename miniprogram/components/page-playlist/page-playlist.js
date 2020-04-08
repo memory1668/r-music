@@ -220,13 +220,21 @@ Component({
       })
     },
 
-    
     /**
      * 跳转到歌曲推荐页面
      */
-    goRecommend(){
+    goRecommend() {
       wx.navigateTo({
         url: '/pages/recommend/recommend'
+      })
+    },
+
+    /**
+     * 跳转到最新歌曲页面
+     */
+    goNewsong() {
+      wx.navigateTo({
+        url: '/pages/new-song/new-song',
       })
     }
   }

@@ -1,18 +1,18 @@
-// miniprogram/pages/profile-collect/profile-collect.js
+// miniprogram/pages/new-song/new-song.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    musicList: [] // 收藏音乐列表
+    musiclist: [] //最新音乐列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadCollectList()
+    this.getNewsongs()
   },
 
   /**
@@ -64,11 +64,26 @@ Page({
 
   },
 
-  loadCollectList() {
-    this.setData({
-      musicList: wx.getStorageSync('collectList')
+  getNewsongs() {
+    wx.showLoading()
+    wx.cloud.callFunction({
+      name: 'music',
+      data: {
+        $url: 'newsongs'
+      }
+    }).then(res=>{
+      console.log('获取最新歌曲成功', res)
+      const musiclist = []
+      res.result.data.forEach(item=>{
+        musiclist.push(item.song)
+      })
+      this.setData({
+        musiclist
+      })
+      wx.hideLoading()
+    }).catch(err=>{
+      console.log('获取最新歌曲失败', err)
+      wx.hideLoading()
     })
-    // 设置当前的播放列表
-    // wx.setStorageSync('musiclist', this.data.musicList)
   }
 })

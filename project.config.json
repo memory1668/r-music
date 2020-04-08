@@ -154,6 +154,12 @@
 					"pathName": "pages/test/test",
 					"query": "playlistId= 2714223742&playCount=700万",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "最新歌曲",
+					"pathName": "pages/new-song/new-song",
+					"scene": null
 				}
 			]
 		}

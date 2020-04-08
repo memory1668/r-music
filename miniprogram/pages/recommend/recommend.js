@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    musiclist: []
   },
 
   /**
@@ -94,6 +94,9 @@ Page({
           url: '/pages/netease-auth/netease-auth'
         })
       }
+      this.setData({
+        musiclist: result.recommend
+      })
     }).catch(err => {
       console.log('获取推荐歌曲失败', err)
     }).finally(() => {

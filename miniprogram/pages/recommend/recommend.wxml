@@ -1,2 +1,1 @@
-<!--miniprogram/pages/recommend/recommend.wxml-->
-<text>miniprogram/pages/recommend/recommend.wxml</text>
+<r-musiclist listType="recommendList" musiclist="{{musiclist}}" coverImgUrl="{{musiclist[0].album.picUrl}}" name="每日推荐"></r-musiclist>

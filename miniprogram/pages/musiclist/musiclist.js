@@ -47,7 +47,7 @@ Page({
           name: pl.name
         }
       })
-      this._setMusicList()
+      // this._setMusicList()
       wx.hideLoading()
     }).catch(error => {
       console.log('获取歌曲列表失败', error)

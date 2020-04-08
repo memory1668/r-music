@@ -116,33 +116,68 @@ exports.main = async (event, context) => {
     let cookie_0 = rp.cookie(cookie[2]);
     console.log(cookie_0);
     let cookiejar = rp.jar();
-    cookiejar.setCookie(cookie_2,  BASE_URL);
+    cookiejar.setCookie(cookie_2, BASE_URL);
     cookiejar.setCookie(cookie_1, BASE_URL);
-    cookiejar.setCookie(cookie_0,  BASE_URL);
+    cookiejar.setCookie(cookie_0, BASE_URL);
     let options = {
       uri: BASE_URL + '/recommend/songs',
       method: 'GET',
       jar: cookiejar
     };
-    ctx.body = await rp(options).then( res=> {
+    ctx.body = await rp(options).then(res => {
       console.log('推荐歌曲成功', res);
       const reuslt = JSON.parse(res)
-      if(reuslt.code === 200){
+      if (reuslt.code === 200) {
         return {
           code: 200,
           msg: 'success',
           recommend: reuslt.recommend
         }
-      }else {
+      } else {
         return {
           code: 500,
           msg: reuslt
         }
       }
-    }).catch(err=>{
+    }).catch(err => {
       console.log('推荐歌曲失败', err);
       return err.error
     })
+  })
+
+  // 获取最新歌曲
+  app.router('newsongs', async (ctx, next) => {
+    ctx.body = await rp(BASE_URL + '/personalized/newsong')
+      .then((res) => {
+        console.log('获取最新歌曲成功', res)
+        const result = JSON.parse(res).result
+        return {
+          code: 200,
+          msg: 'success',
+          data: result,
+        }
+        // const totalPage = Math.ceil(list.length / event.count)
+        // let resList = []
+        // // 加载最后一页数据
+        // if (event.curPage === totalPage) {
+        //   resList = list.slice(event.start, list.length)
+        // } else {
+        //   resList = list.slice(event.start, event.start + event.count)
+        // }
+        // return {
+        //   chartsList: resList,
+        //   total: list.length,
+        //   totalPage: totalPage
+        // }
+      })
+      .catch(error => {
+        console.log('获取最新歌曲失败', error)
+        return {
+          code: 500,
+          msg: '获取最新歌曲失败'
+        }
+        // throw error
+      })
   })
   return app.serve()
 }
