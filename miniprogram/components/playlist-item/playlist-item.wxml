@@ -5,5 +5,4 @@
     <image class="count-background" src="/images/count-background.png"></image>
     <view class="count-text" style="left:{{playlistitem.playCount<10000000?'60rpx':'50rpx'}}">{{_count}}</view>
   </view>
-	<image wx:if="{{showMusicBackground}}" class="playlist-background" src="/images/playlist-background.png"></image>
 </view>

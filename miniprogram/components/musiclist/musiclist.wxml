@@ -1,21 +1,6 @@
-<view wx:if="{{listType !== 'searchList'}}" class="detail-container" style="background: url({{coverImgUrl}}) no-repeat top/cover;"></view>
-<view wx:if="{{listType !== 'searchList'}}" class="detail-mask"></view>
-<!-- 列表信息 -->
-<view wx:if="{{listType !== 'searchList'}}" class="detail-info" style="align-items:{{playCount === '' ? 'center':'flex-start'}}">
-	<image src="{{coverImgUrl}}" class="detail-img" id="cover-img"></image>
-	<view class="detail">
-		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
-			<image class="icon" src="/images/ear-phone.png"></image>
-			<text class="text">{{playCount}}</text>
-		</view>
-		<view class="detail-nm">{{name}}</view>
-	</view>
-</view>
-
-
-<!-- 歌曲列表 -->
 <view class="list">
-	<view wx:if="{{listType !== 'searchList'}}" class="list-header" id="list-header" style="position: sticky">
+<!-- 列表头部 -->
+	<view wx:if="{{isShowHeader}}" class="list-header" id="list-header" style="position: sticky">
 		<view class="title-container">
 			<text class="title">播放列表</text>
 			<text class="list-length" wx:if="{{listType !== 'hotList'}}">（共{{musiclist.length}}首）</text>
@@ -26,6 +11,8 @@
 			<text class="playall-text">播放全部</text>
 		</view>
 	</view>
+  
+  <!-- 歌曲列表 -->
 	<block wx:for="{{musiclist}}" wx:key="id">
 		<view class="musiclist-item {{playingId === item.id ? 'playing' : ''}}" bindtap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
 			<!-- 排行榜序号 -->
@@ -53,5 +40,3 @@
 		</view>
 	</block>
 </view>
-<!-- 回到顶部按钮 -->
-<image wx:if="{{isShowTotop}}" class="icon-totop" src="/images/totop.png" bindtap="scrollToTop"></image>

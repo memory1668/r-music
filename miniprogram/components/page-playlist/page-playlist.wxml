@@ -39,7 +39,7 @@
 			<view class="text">最新</view>
 		</view>
 		<!-- 专辑 -->
-		<view class="album ent-item">
+		<view class="album ent-item" bindtap="goAlbum">
 			<view class="image-container">
 				<image class="icon" src="/images/album.png"></image>
 			</view>

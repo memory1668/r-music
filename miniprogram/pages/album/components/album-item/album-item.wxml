@@ -1,0 +1,8 @@
+<view class="album-item">
+  <!-- 专辑封面 -->
+  <image class="cover" src="{{album.picUrl}}"></image>
+  <!-- 专辑名称 -->
+  <text class="name">{{album.name}}</text>
+  <!-- 唱片背景 -->
+	<image class="album-background" src="/images/playlist-background.png"></image>
+</view>

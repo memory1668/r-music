@@ -1,1 +1,1 @@
-<r-musiclist musiclist="{{musicList}}"/>
+<detail musiclist="{{musicList}}"/>

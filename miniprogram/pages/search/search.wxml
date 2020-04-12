@@ -2,4 +2,4 @@
   <view class="search-container">
     <search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="onSearch"></search>
   </view>
-  <r-musiclist musiclist="{{musicList}}" listType="searchList"></r-musiclist>
+  <musiclist musiclist="{{musicList}}" isShowHeader="{{false}}"/>

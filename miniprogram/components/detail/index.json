@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "detail-header": "./detail-header/detail-header",
+    "musiclist": "../musiclist/musiclist"
+  }
+}

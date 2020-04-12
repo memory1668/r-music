@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "r-musiclist": "/components/musiclist/musiclist"
+    "detail": "/components/detail/index"
   },
   "navigationBarTitleText": "每日推荐"
 }

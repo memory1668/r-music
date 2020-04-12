@@ -1,1 +1,1 @@
-<r-musiclist listType="recommendList" musiclist="{{musiclist}}" coverImgUrl="{{musiclist[0].album.picUrl}}" name="每日推荐"></r-musiclist>
+<detail listType="recommendList" musiclist="{{musiclist}}" coverImgUrl="{{musiclist[0].album.picUrl}}" name="每日推荐" />

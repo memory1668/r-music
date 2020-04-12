@@ -1,0 +1,20 @@
+<!-- 列表信息 -->
+<!-- <view wx:if="{{listType !== 'searchList'}}" class="detail-info" style="align-items:{{playCount === '' ? 'center':'flex-start'}}">
+	<image src="{{coverImgUrl}}" class="detail-img" id="cover-img"></image>
+	<view class="detail">
+		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
+			<image class="icon" src="/images/ear-phone.png"></image>
+			<text class="text">{{playCount}}</text>
+		</view>
+		<view class="detail-nm">{{name}}</view>
+	</view>
+</view> -->
+<view class="detail-header">
+	<detail-header detailImage="{{coverImgUrl}}" playCount="{{playCount}}" name="{{name}}" />
+</view>
+
+
+<!-- 歌曲列表 -->
+<musiclist musiclist="{{musiclist}}" listType="{{listType}}" playingId="{{playingId}}" />
+<!-- 回到顶部按钮 -->
+<!-- <image wx:if="{{isShowTotop}}" class="icon-totop" src="/images/totop.png" bindtap="scrollToTop"></image> -->

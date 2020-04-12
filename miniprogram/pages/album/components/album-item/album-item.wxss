@@ -1,0 +1,33 @@
+.album-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 36rpx;
+  position: relative;
+}
+
+.cover {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 5px;
+  position: relative;
+  z-index: 9;
+}
+
+.name {
+  font-size: 12px;
+  margin-top: 20rpx;
+  width: 180rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.album-background {
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  right: 0;
+  top: 15rpx;
+}

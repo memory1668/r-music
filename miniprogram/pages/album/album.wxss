@@ -1,0 +1,13 @@
+.album {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24rpx;
+}
+
+.album-item:not(:nth-child(3n + 3)) {
+  margin-right: 24rpx;
+}
+
+.album-item:nth-child(n + 4) {
+  margin-top: 24rpx;
+}

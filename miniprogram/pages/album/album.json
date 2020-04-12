@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "album-item": "./components/album-item/album-item"
+  },
+  "navigationBarTitleText": "最新专辑"
+}

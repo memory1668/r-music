@@ -236,6 +236,15 @@ Component({
       wx.navigateTo({
         url: '/pages/new-song/new-song',
       })
+    },
+
+    /**
+     * 跳转到专辑页面
+     */
+    goAlbum() {
+      wx.navigateTo({
+        url: '/pages/album/album',
+      })
     }
   }
 })

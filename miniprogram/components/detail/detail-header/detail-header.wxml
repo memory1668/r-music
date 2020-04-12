@@ -1,0 +1,16 @@
+<!-- 占位 -->
+<view class="detail-container" style="background: url({{detailImage}}) no-repeat top/cover;"></view>
+<!-- 遮罩层 -->
+<view class="detail-mask"></view>
+<!-- 信息 -->
+<view class="detail-info">
+  <!-- 详情图 -->
+	<image src="{{detailImage}}" class="detail-img"></image>
+	<view class="detail">
+		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
+			<image class="icon" src="/images/ear-phone.png"></image>
+			<text class="text">{{playCount}}</text>
+		</view>
+		<view class="detail-nm">{{name}}</view>
+	</view>
+</view>

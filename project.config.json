@@ -159,6 +159,13 @@
 					"id": -1,
 					"name": "最新歌曲",
 					"pathName": "pages/new-song/new-song",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "专辑列表",
+					"pathName": "pages/album/album",
 					"scene": null
 				}
 			]
