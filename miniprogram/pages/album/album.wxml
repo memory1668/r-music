@@ -1,6 +1,6 @@
 <!-- 专辑列表 -->
 <view class="album">
-	<view class="album-item" wx:for="{{albumList}}" wx:key="id" data-id="{{item.id}}" bindtap="goAlbunDetail">
+	<view class="album-item" wx:for="{{albumList}}" wx:key="id" data-id="{{item.id}}" data-index="{{index}}" bindtap="goAlbunDetail">
 		<album-item album="{{item}}"/>
 	</view>
 </view>

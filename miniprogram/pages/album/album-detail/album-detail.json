@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "album-header": "../components/album-header/album-header",
+    "musiclist": "/components/musiclist/musiclist"
+  }
 }

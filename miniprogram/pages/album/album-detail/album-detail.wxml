@@ -1,2 +1,7 @@
-<!--miniprogram/pages/album/album-detail/album-detail.wxml-->
-<text>miniprogram/pages/album/album-detail/album-detail.wxml</text>
+<!-- <detail listType="albumList" musiclist="{{musiclist}}" coverImgUrl="{{musiclist[0].al.picUrl}}" name="{{musiclist[0].al.name}}"/> -->
+<!-- 专辑头部 -->
+<view>
+	<album-header album="{{album}}" />
+	<!-- 歌曲列表 -->
+	<musiclist musiclist="{{musiclist}}" />
+</view>

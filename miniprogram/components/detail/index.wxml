@@ -9,6 +9,7 @@
 		<view class="detail-nm">{{name}}</view>
 	</view>
 </view> -->
+<!-- 头部 -->
 <view class="detail-header">
 	<detail-header detailImage="{{coverImgUrl}}" playCount="{{playCount}}" name="{{name}}" />
 </view>

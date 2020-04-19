@@ -5,14 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    musiclist: [], // 专辑的音乐列表
+    album: {
+      name: '',
+      picUrl: '',
+      singer: {
+        name: '',
+        avatar: ''
+      },
+      publishTime: '' // 发行时间
+    }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getAlbumDetail(options.id)
+    const musiclist = this.data.musiclist
+    console.log('avatar', options)
+    this.setData({
+      ['album.publishTime']: this.fmtTime(Number(options.publishTime)),
+      ['album.singer.avatar']:  getApp().globalData.curSingerAvatar 
+    })
   },
 
   /**
@@ -82,8 +96,12 @@ Page({
         return
       }
       console.log('获取专辑详情成功', res)
+      const musiclist = res.result.data
       this.setData({
-        albumList: this.data.albumList.concat(res.result.data)
+        musiclist,
+        ['album.name']: musiclist[0].al.name,
+        ['album.picUrl']: musiclist[0].al.picUrl,
+        ['album.singer.name']: musiclist[0].ar[0].name
       })
       wx.hideLoading({})
       wx.stopPullDownRefresh({})
@@ -94,5 +112,15 @@ Page({
         icon: 'none'
       })
     })
+  },
+  /**
+   * 格式化时间
+   * time 时间戳
+   */
+  fmtTime(time) {
+    const date = new Date(time)
+    let formatedTime = ''
+    formatedTime = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日'
+    return formatedTime
   }
 })

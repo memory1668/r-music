@@ -1,0 +1,17 @@
+<!-- 占位 -->
+<view class="header-container" style="background: url({{album.picUrl}}) no-repeat top/cover;"></view>
+<!-- 遮罩层 -->
+<view class="header-mask"></view>
+<view class="album-info-container">
+	<view class="album-item">
+		<album-item album="{{albumItem}}" />
+	</view>
+	<view wx:if="{{album.name !== ''}}" class="album-info">
+		<view class="al-name">{{album.name}}</view>
+		<view class="singer">
+			<image class="avatar" src="{{album.singer.avatar}}"></image>
+			<text>{{album.singer.name + '>'}}</text>
+		</view>
+		<view class="publish-time">发行于：{{album.publishTime}}</view>
+	</view>
+</view>

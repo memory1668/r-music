@@ -54,7 +54,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getAlbumList()
   },
 
   /**
@@ -75,7 +75,7 @@ Page({
       name: 'album',
       data: {
         start: this.data.albumList.length,
-        count: 10,
+        count: 20,
         $url: 'getAlbumList'
       }
     }).then(res => {
@@ -103,10 +103,12 @@ Page({
   },
 
   goAlbunDetail(e) {
-    // console.log(e)
     const id = e.currentTarget.dataset.id
+    const index = e.currentTarget.dataset.index
+    const album = this.data.albumList[index]
+    getApp().globalData.curSingerAvatar = album.artist.picUrl
     wx.navigateTo({
-      url: '/pages/album/album-detail/album-detail?id='+id
+      url: `/pages/album/album-detail/album-detail?id=${id}&publishTime=${album.publishTime}`
     })
   }
 })

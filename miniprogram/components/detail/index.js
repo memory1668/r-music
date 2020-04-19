@@ -4,10 +4,6 @@ Component({
    */
   properties: {
     musiclist: Array,
-    coverImgUrl: {
-      type: String,
-      value: ''
-    },
     name: {
       type: String,
       value: ''
@@ -30,6 +26,10 @@ Component({
     listType: {
       type: String,
       value: 'playList'
+    },
+    coverImgUrl: {
+      type: String,
+      value: ''
     }
   },
 

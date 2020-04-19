@@ -34,7 +34,7 @@ exports.main = async (event, context) => {
       return {
         code: 200,
         msg: 'success',
-        data: []
+        data: JSON.parse(res).songs
       }
       // return JSON.parse(res).songs[0].al
     }).catch(err => {

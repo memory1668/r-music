@@ -22,7 +22,8 @@ App({
       currentTime: '00:00', // 当前播放时间
       movableDis: 0, // 小圆球移动的距离
       progress: 0, // 进度条移动距离
-      openid: -1
+      openid: -1,
+      curSingerAvatar: '' // 当前专辑的歌手头像
     }
 
     this.getOpenId()

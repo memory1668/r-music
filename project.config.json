@@ -166,6 +166,14 @@
 					"id": -1,
 					"name": "专辑列表",
 					"pathName": "pages/album/album",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "专辑详情",
+					"pathName": "pages/album/album-detail/album-detail",
+					"query": "id= 84019897",
 					"scene": null
 				}
 			]

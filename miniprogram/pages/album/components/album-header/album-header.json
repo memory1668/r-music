@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "album-item": "/pages/album/components/album-item/album-item"
+  }
+}
