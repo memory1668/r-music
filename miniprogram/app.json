@@ -20,7 +20,9 @@
     "pages/test/test",
     "pages/new-song/new-song",
     "pages/album/album",
-    "pages/album/album-detail/album-detail"
+    "pages/album/album-detail/album-detail",
+    "pages/singer/singer",
+    "pages/singer/singer-detail/singer-detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -1,0 +1,1 @@
+<detail-header detailImage="{{singer.picUrl}}" name="{{singer.name}}"/>

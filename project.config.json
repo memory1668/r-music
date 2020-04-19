@@ -175,6 +175,20 @@
 					"pathName": "pages/album/album-detail/album-detail",
 					"query": "id= 84019897",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "热门歌手",
+					"pathName": "pages/singer/singer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "歌手详情",
+					"pathName": "pages/singer/singer-detail/singer-detail",
+					"query": "id=12138269&index=6",
+					"scene": null
 				}
 			]
 		}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "detail-header": "/components/detail/detail-header/detail-header"
+  }
+}
