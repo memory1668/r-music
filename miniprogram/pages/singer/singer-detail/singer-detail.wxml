@@ -1,1 +1,16 @@
-<detail-header detailImage="{{singer.picUrl}}" name="{{singer.name}}"/>
+<!--头部 -->
+<detail-header detailImage="{{singer.picUrl}}" name="{{singer.name}}" />
+<!-- tab -->
+<van-tabs active="{{ active }}" bind:change="onChange" color="#ffbe5a">
+	<van-tab title="热门歌曲">
+	</van-tab>
+	<van-tab title="专辑"></van-tab>
+</van-tabs>
+<swiper class="swiper">
+	<swiper-item>
+		<musiclist musiclist="{{musiclist}}" />
+	</swiper-item>
+	<swiper-item>
+		<text>22</text>
+	</swiper-item>
+</swiper>

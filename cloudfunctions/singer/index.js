@@ -28,5 +28,39 @@ exports.main = async (event, context) => {
       }
     })
   })
+  // 获取歌手热门歌曲
+  app.router('getHotSong', async (ctx, next) => {
+    ctx.body = await rp(BASE_URL + `/artists?id=${event.id}`).then(res => {
+      console.log('获取歌手热门歌曲成功', res)
+      return {
+        code: 200,
+        msg: 'success',
+        data: JSON.parse(res).hotSongs
+      }
+    }).catch(err => {
+      console.log('获取歌手热门歌曲失败', err)
+      return {
+        code: 500,
+        msg: '获取歌手热门歌曲失败'
+      }
+    })
+  })
+  // 获取歌手专辑
+  app.router('getAlbum', async (ctx, next) => {
+    ctx.body = await rp(BASE_URL + `/artist/album?id=${event.id}`).then(res => {
+      console.log('获取歌手专辑', res)
+      return {
+        code: 200,
+        msg: 'success',
+        data: JSON.parse(res).hotAlbums
+      }
+    }).catch(err => {
+      console.log('获取歌手专辑失败', err)
+      return {
+        code: 500,
+        msg: '获取歌手专辑失败'
+      }
+    })
+  })
   return app.serve()
 }

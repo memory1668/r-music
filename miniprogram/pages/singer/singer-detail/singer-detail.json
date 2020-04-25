@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "detail-header": "/components/detail/detail-header/detail-header"
+    "detail-header": "/components/detail/detail-header/detail-header",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "musiclist": "/components/musiclist/musiclist"
   }
 }

@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    singer: {}
+    singer: {},
+    active: 0,
+    musiclist: []
   },
 
   /**
@@ -13,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     this.getSingerInfo(options.index)
+    this.getHotSong()
   },
 
   /**
@@ -70,6 +73,43 @@ Page({
     const singer = wx.getStorageSync('singerList')[index]
     this.setData({
       singer
+    })
+  },
+  /**
+   * 获取歌手热门歌曲
+   */
+  getHotSong() {
+    wx.showLoading({
+      title: '加载中'
+    })
+    wx.cloud.callFunction({
+      name: 'singer',
+      data: {
+        id: this.data.singer.id,
+        $url: 'getHotSong'
+      }
+    }).then(res => {
+      console.log('获取歌手热门歌曲成功', res)
+      if (res.result.code !== 200) {
+        console.log('获取歌手热门歌曲失败', res)
+        wx.showToast({
+          title: '获取歌手热门歌曲失败',
+          icon: 'none'
+        })
+        return
+      }
+      const musiclist = res.result.data
+      this.setData({
+        musiclist
+      })
+      wx.hideLoading({})
+      wx.stopPullDownRefresh({})
+    }).catch(err => {
+      console.log('获取歌手热门歌曲失败', err)
+      wx.showToast({
+        title: '获取歌手热门歌曲失败',
+        icon: 'none'
+      })
     })
   }
 })

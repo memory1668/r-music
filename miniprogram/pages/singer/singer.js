@@ -95,9 +95,9 @@ Page({
       wx.hideLoading({})
       wx.stopPullDownRefresh({})
     }).catch(err => {
-      console.log('获取专辑列表失败', err)
+      console.log('获取热门歌手列表失败', err)
       wx.showToast({
-        title: '获取专辑列表失败',
+        title: '获取热门歌手列表失败',
         icon: 'none'
       })
     })

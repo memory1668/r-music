@@ -1,1 +1,6 @@
-/* miniprogram/pages/singer/singer-detail/singer-detail.wxss */
+page{
+  height: 100%;
+}
+.swiper{
+  height: 100%;
+}
