@@ -5,7 +5,7 @@
 <!-- 信息 -->
 <view class="detail-info">
   <!-- 详情图 -->
-	<image src="{{detailImage}}" class="detail-img"></image>
+	<image src="{{detailImage}}" class="detail-img" mode="aspectFill"></image>
 	<view class="detail">
 		<view class="play-count" wx:if="{{playCount !== '' && name !== ''}}">
 			<image class="icon" src="/images/ear-phone.png"></image>

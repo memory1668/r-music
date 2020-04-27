@@ -108,7 +108,7 @@ Page({
     const album = this.data.albumList[index]
     getApp().globalData.curSingerAvatar = album.artist.picUrl
     wx.navigateTo({
-      url: `/pages/album/album-detail/album-detail?id=${id}&publishTime=${album.publishTime}`
+      url: `/pages/album/album-detail/album-detail?id=${id}&publishTime=${album.publishTime}&source=album`
     })
   }
 })

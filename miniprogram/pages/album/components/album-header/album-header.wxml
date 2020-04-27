@@ -8,7 +8,7 @@
 	</view>
 	<view wx:if="{{album.name !== ''}}" class="album-info">
 		<view class="al-name">{{album.name}}</view>
-		<view class="singer">
+		<view class="singer" bindtap="goSinger">
 			<image class="avatar" src="{{album.singer.avatar}}"></image>
 			<text>{{album.singer.name + '>'}}</text>
 		</view>

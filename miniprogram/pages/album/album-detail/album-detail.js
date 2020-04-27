@@ -13,7 +13,8 @@ Page({
         name: '',
         avatar: ''
       },
-      publishTime: '' // 发行时间
+      publishTime: '', // 发行时间,
+      source: ''
     }
   },
   /**
@@ -25,7 +26,8 @@ Page({
     console.log('avatar', options)
     this.setData({
       ['album.publishTime']: this.fmtTime(Number(options.publishTime)),
-      ['album.singer.avatar']:  getApp().globalData.curSingerAvatar 
+      ['album.singer.avatar']:  getApp().globalData.curSingerAvatar,
+      source: options.source
     })
   },
 

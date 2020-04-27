@@ -1,0 +1,12 @@
+<view class="album-item" bindtap="goAlbumDetail">
+	<view class="album-cover">
+		<!-- 专辑封面 -->
+		<image class="cover" src="{{album.picUrl}}"></image>
+		<!-- 唱片背景 -->
+		<image class="album-background" src="/images/playlist-background.png"></image>
+	</view>
+	<view class="album-info">
+		<view class="album-name">{{album.name}}</view>
+		<view class="publish-time">发行于 {{pubTimeFmt}}</view>
+	</view>
+</view>

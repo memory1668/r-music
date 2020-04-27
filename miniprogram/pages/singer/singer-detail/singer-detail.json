@@ -3,6 +3,7 @@
     "detail-header": "/components/detail/detail-header/detail-header",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "musiclist": "/components/musiclist/musiclist"
+    "musiclist": "/components/musiclist/musiclist",
+    "album-item": "./album-item/album-item"
   }
 }

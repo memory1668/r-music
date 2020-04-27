@@ -14,6 +14,11 @@ Component({
     listType: {
       type: String,
       value: 'playList'
+    },
+    // 头部是否需要吸附
+    isSticky: {
+      type: Boolean,
+      value: true
     }
   },
 

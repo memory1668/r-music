@@ -1,16 +1,24 @@
-<!--头部 -->
-<detail-header detailImage="{{singer.picUrl}}" name="{{singer.name}}" />
-<!-- tab -->
-<van-tabs active="{{ active }}" bind:change="onChange" color="#ffbe5a">
-	<van-tab title="热门歌曲">
-	</van-tab>
-	<van-tab title="专辑"></van-tab>
-</van-tabs>
-<swiper class="swiper">
-	<swiper-item>
-		<musiclist musiclist="{{musiclist}}" />
-	</swiper-item>
-	<swiper-item>
-		<text>22</text>
-	</swiper-item>
-</swiper>
+<view wx:if="{{isShowSticky}}" class="tab-hide tab" id="tab">
+	<view wx:for="{{tabs}}" wx:key="index" class="tab-song tab-item">
+		<text class="tab-text {{curTab == index?'active':''}}" bindtap="changeTab" data-index="{{index}}">{{item + ' ' + (index === 0 ? musiclist.length : albumList.length)}}</text>
+	</view>
+</view>
+
+<scroll-view style="height: 100%" scroll-y="{{true}}" bindscroll="scroll">
+	<!--头部 -->
+	<detail-header detailImage="{{albumList[0].artist.picUrl}}" name="{{albumList[0].artist.name}}" />
+	<!-- tab -->
+	<view wx:if="tabs.length > 0" class="tab" id="tab">
+		<view wx:for="{{tabs}}" wx:key="index" class="tab-song tab-item">
+			<text class="tab-text {{curTab == index?'active':''}}" bindtap="changeTab" data-index="{{index}}">{{item}}</text>
+		</view>
+	</view>
+	<view hidden="{{curTab !== 0}}">
+		<musiclist musiclist="{{musiclist}}" isSticky="{{false}}" tabs="{{tabs}}" />
+	</view>
+	<view hidden="{{curTab !== 1}}">
+		<block wx:for="{{albumList}}" wx:key="index">
+			<album-item album="{{item}}"></album-item>
+		</block>
+	</view>
+</scroll-view>

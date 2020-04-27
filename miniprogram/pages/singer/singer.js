@@ -105,9 +105,9 @@ Page({
 
   goSingerDetail(e) {
     const id = e.currentTarget.dataset.id // 歌手id
-    const index = e.currentTarget.dataset.index // 当前点击的歌手索引
+    // const index = e.currentTarget.dataset.index // 当前点击的歌手索引
     wx.navigateTo({
-      url: `/pages/singer/singer-detail/singer-detail?id=${id}&index=${index}`
+      url: `/pages/singer/singer-detail/singer-detail?singerId=${id}`
     })
   }
 })

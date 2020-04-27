@@ -1,6 +1,6 @@
 <view class="list">
-<!-- 列表头部 -->
-	<view wx:if="{{isShowHeader}}" class="list-header" id="list-header" style="position: sticky">
+	<!-- 列表头部 -->
+	<view wx:if="{{isShowHeader}}" class="list-header" id="list-header" style="position: {{isSticky?'sticky':'relative'}}">
 		<view class="title-container">
 			<text class="title">播放列表</text>
 			<text class="list-length" wx:if="{{listType !== 'hotList'}}">（共{{musiclist.length}}首）</text>
@@ -11,8 +11,7 @@
 			<text class="playall-text">播放全部</text>
 		</view>
 	</view>
-  
-  <!-- 歌曲列表 -->
+	<!-- 歌曲列表 -->
 	<block wx:for="{{musiclist}}" wx:key="id">
 		<view class="musiclist-item {{playingId === item.id ? 'playing' : ''}}" bindtap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
 			<!-- 排行榜序号 -->

@@ -46,7 +46,7 @@
 			<view class="text">专辑</view>
 		</view>
 		<!-- 歌手 -->
-		<view class="singer ent-item">
+		<view class="singer ent-item" bindtap="goSinger">
 			<view class="image-container">
 				<image class="icon" src="/images/singers.png"></image>
 			</view>

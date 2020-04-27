@@ -5,6 +5,11 @@ Component({
    */
   properties: {
     album: Object,
+    // 歌手id, -1表示不能跳转到歌手详情
+    singerId: {
+      type: Number,
+      value: -1
+    }
   },
   observers: {
     album(val){
@@ -26,6 +31,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goSinger() {
+      if(this.data.singerId === -1){
+        wx.navigateBack()
+      }else{
+        wx.navigateTo({
+          url: `/pages/singer/singer-detail/singer-detail?singerId=${this.data.singerId}`,
+        })
+      }
+    }
   }
 })
