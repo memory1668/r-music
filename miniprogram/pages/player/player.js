@@ -21,6 +21,8 @@ Page({
     isSame: false, // 是否播放同一首歌曲
     isCollected: false,
     count: 0, // 控制循环模式
+    show: true,
+    shareNum: '',
   },
 
   /**
@@ -438,5 +440,14 @@ Page({
       console.log('随机生成音乐索引', curIndex)
       this.onNext()
     }
+  },
+
+  showPopup() {
+    console.log('showPopup')
+    this.setData({ show: true });
+  },
+
+  onClose() {
+    this.setData({ show: false });
   }
 })

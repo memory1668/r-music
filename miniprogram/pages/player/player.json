@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "r-progress-bar" : "/components/progress-bar/progress-bar",
-    "r-lyric" : "/components/lyric/lyric"
+    "r-lyric" : "/components/lyric/lyric",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-field": "@vant/weapp/field/index"
   },
   "disableScroll": true
 }

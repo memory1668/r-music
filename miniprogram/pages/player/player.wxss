@@ -115,3 +115,24 @@
   bottom: 24%;
   transform: translateX(-50%);
 }
+
+.share {
+  position: fixed;
+  right: 40rpx;
+  top: 40rpx;
+  z-index: 9999;
+}
+
+.earphone-image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.share-popup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 94vw;
+  height: 88vh;
+  padding-top: 60rpx;
+}

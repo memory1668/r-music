@@ -2,38 +2,48 @@
 <view class="player-container" style="background:url({{picUrl}}) center/cover no-repeat"></view>
 <!-- 遮罩层 -->
 <view class="player-mask"></view>
+<!-- 同听 -->
+<view class="share" bindtap="showPopup">
+	<image class="earphone-image" src="/images/earphone.png"></image>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" round overlay-style="background-color: rgba(0,0,0,0.5)">
+	<view class="share-popup">
+		<van-field value="{{ shareNum }}" clearable placeholder="请输入六位数字分享码" type="number" bind:click-icon="onClickIcon" />
+		<view>输入同一个数字，与身边好友听同一首歌</view>
+	</view>
+</van-popup>
 
 <view class="player-info">
-  <!-- 封面信息 -->
-  <view class="player-disc" bindtap="onShowLyricChange" hidden="{{isLyricShow}}">
-    <image class="player-img rotation {{isPlaying?'':'rotation-paused'}}" src="{{picUrl}}"></image>
-  </view>
-  <!-- 歌词 -->
-  <r-lyric class="lyric" bindtap="onShowLyricChange" isLyricShow="{{isLyricShow}}" lyric="{{lyric}}" />
-  <!-- 进度条 -->
-  <view class="progress-bar">
-    <r-progress-bar bind:musicEnd='musicEnd' bind:updateTime="updateTime" bind:musicPlay="onPlay" bind:musicPause="onPause" isSame="{{isSame}}" />
-  </view>
-  <!-- 控制按钮 -->
-  <view class="control">
-    <!-- 列表循环 -->
-    <!-- <text class="iconfont icon-liebiaoxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===0}}"></text> -->
-    <image class="play-mode" src="/images/liebiaoxunhuan.png" bindtap="changeMode" wx:if="{{count%3===0}}"></image>
-    <!-- 单曲循环 -->
-    <!-- <text class="iconfont icon-danquxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===1}}"></text> -->
-    <image class="play-mode" src="/images/danquxunhuan.png" bindtap="changeMode" wx:if="{{count%3===1}}"></image>
-    <!-- 随机播放 -->
-    <!-- <text class="iconfont icon-suijibofang play-mode" bindtap="changeMode" wx:if="{{count%3===2}}"></text> -->
-    <image class="play-mode" src="/images/suijibofang.png" bindtap="changeMode" wx:if="{{count%3===2}}"></image>
-    <!-- 上一曲 -->
-    <text class="iconfont icon-shangyishoushangyige" bindtap="onPrev"></text>
-    <!-- 播放 -->
-    <text class="iconfont {{isPlaying?'icon-zanting':'icon-bofang'}}" bindtap="togglePlaying"></text>
-    <!-- 下一曲 -->
-    <text class="iconfont icon-xiayigexiayishou" bindtap="onNext"></text>
-    <!-- 收藏 -->
-    <text class="iconfont icon-shoucang3 collect" bindtap="onCollect" hidden="{{isCollected}}"></text>
-    <!-- 取消收藏 -->
-    <text class="iconfont icon-shoucang collect" bindtap="onCollect" hidden="{{!isCollected}}"></text>
-  </view>
+	<!-- 封面信息 -->
+	<view class="player-disc" bindtap="onShowLyricChange" hidden="{{isLyricShow}}">
+		<image class="player-img rotation {{isPlaying?'':'rotation-paused'}}" src="{{picUrl}}"></image>
+	</view>
+	<!-- 歌词 -->
+	<r-lyric class="lyric" bindtap="onShowLyricChange" isLyricShow="{{isLyricShow}}" lyric="{{lyric}}" />
+	<!-- 进度条 -->
+	<view class="progress-bar">
+		<r-progress-bar bind:musicEnd='musicEnd' bind:updateTime="updateTime" bind:musicPlay="onPlay" bind:musicPause="onPause" isSame="{{isSame}}" />
+	</view>
+	<!-- 控制按钮 -->
+	<view class="control">
+		<!-- 列表循环 -->
+		<!-- <text class="iconfont icon-liebiaoxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===0}}"></text> -->
+		<image class="play-mode" src="/images/liebiaoxunhuan.png" bindtap="changeMode" wx:if="{{count%3===0}}"></image>
+		<!-- 单曲循环 -->
+		<!-- <text class="iconfont icon-danquxunhuan play-mode" bindtap="changeMode" wx:if="{{count%3===1}}"></text> -->
+		<image class="play-mode" src="/images/danquxunhuan.png" bindtap="changeMode" wx:if="{{count%3===1}}"></image>
+		<!-- 随机播放 -->
+		<!-- <text class="iconfont icon-suijibofang play-mode" bindtap="changeMode" wx:if="{{count%3===2}}"></text> -->
+		<image class="play-mode" src="/images/suijibofang.png" bindtap="changeMode" wx:if="{{count%3===2}}"></image>
+		<!-- 上一曲 -->
+		<text class="iconfont icon-shangyishoushangyige" bindtap="onPrev"></text>
+		<!-- 播放 -->
+		<text class="iconfont {{isPlaying?'icon-zanting':'icon-bofang'}}" bindtap="togglePlaying"></text>
+		<!-- 下一曲 -->
+		<text class="iconfont icon-xiayigexiayishou" bindtap="onNext"></text>
+		<!-- 收藏 -->
+		<text class="iconfont icon-shoucang3 collect" bindtap="onCollect" hidden="{{isCollected}}"></text>
+		<!-- 取消收藏 -->
+		<text class="iconfont icon-shoucang collect" bindtap="onCollect" hidden="{{!isCollected}}"></text>
+	</view>
 </view>
