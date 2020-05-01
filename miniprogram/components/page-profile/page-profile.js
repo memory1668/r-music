@@ -20,6 +20,10 @@ Component({
     isShowBlog: {
       type: Boolean,
       value: true
+    },
+    isShowQrCode: {
+      type: Boolean,
+      value: true
     }
   },
 

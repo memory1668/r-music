@@ -28,7 +28,8 @@ Page({
     ],
     isShowBlog: true,
     isShowHistory: true,
-    isShowCollect: true
+    isShowCollect: true,
+    isShowQrCode: true
   },
 
   /**
@@ -150,6 +151,12 @@ Page({
     if (index === 2) {
       this.setData({
         isShowCollect: e.detail
+      })
+    }
+
+    if (index === 3) {
+      this.setData({
+        isShowQrCode: e.detail
       })
     }
   },
