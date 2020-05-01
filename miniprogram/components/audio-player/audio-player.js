@@ -30,9 +30,11 @@ Component({
   lifetimes: {
     ready() {
       // setInterval(() => {
-      // this.bindAudioEvent()        
+      //   this.bindAudioEvent()
       // }, 1000)
+      console.log('ready', this.data.currentTime)
       this._setCurrentTime()
+      console.log('ready', this.data.currentTime)
     },
     detached() {
       console.log('detached ')
@@ -109,7 +111,7 @@ Component({
             const duration = innerAudioContext.duration // 总时长
             const currentTime = innerAudioContext.currentTime // 当前播放时间
             const sec = currentTime.toString().split('.')[0]
-            console.log('sec', sec, curSec)
+            // console.log('sec', sec, curSec)
             if (sec != curSec) {
               // console.log('onTimeUpdate', currentTime)
               // this._setCurrentTime()
@@ -123,7 +125,7 @@ Component({
               this.setData({
                 sliderDistance: 100 * currentTime / this.data.duration
               })
-              console.log('sliderDistance', this.data.sliderDistance)
+              // console.log('sliderDistance', this.data.sliderDistance)
               // app.globalData.movableDis = this.data.movableDis
               // app.globalData.progress = this.data.progress
               // 更新当前播放秒数
@@ -198,10 +200,10 @@ Component({
         if (innerAudioContext.src !== this.data.audioSrc) {
           // clearTimeout(timer)
           // setTimeout(()=>{
-          console.log('不是同一个录音');
-          innerAudioContext.src = this.data.audioSrc
+          console.log('不是同一个录音', innerAudioContext.src, this.data.audioSrc);
+          innerAudioContext.src = this.data.audioSrc;
           !innerAudioContext.paused && innerAudioContext.stop()
-          console.log('不是同一个录音');
+          // console.log('不是同一个录音');
           // 延时, 音频停止后再移除绑定事件
           setTimeout(() => {
             this.offAudioEvent()
@@ -212,7 +214,7 @@ Component({
           // 延时，避免播放上一条录音
           setTimeout(() => {
             const sliderDistance = this.data.sliderDistance
-            if (sliderDistance > 0){
+            if (sliderDistance > 0) {
               const currentTime = this.data.duration * sliderDistance / 100
               console.log('seek', currentTime, sliderDistance)
               innerAudioContext.seek(currentTime)
@@ -249,10 +251,10 @@ Component({
      * 进度值改变后触发
      */
     onChange(event) {
-      wx.showToast({
-        icon: 'none',
-        title: `当前值：${event.detail}`
-      });
+      // wx.showToast({
+      //   icon: 'none',
+      //   title: `当前值：${event.detail}`
+      // });
       // sliderDistance = event.detail
       this.setData({
         sliderDistance: event.detail
@@ -276,7 +278,7 @@ Component({
       // 不是同一首歌
       isMoving = false
       console.log('结束拖动时触发')
-      if (innerAudioContext.src !== this.data.audioSrc){
+      if (innerAudioContext.src !== this.data.audioSrc) {
         return
       }
       const currentTime = this.data.duration * this.data.sliderDistance / 100

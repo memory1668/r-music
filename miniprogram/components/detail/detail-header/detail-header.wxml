@@ -11,6 +11,7 @@
 			<image class="icon" src="/images/ear-phone.png"></image>
 			<text class="text">{{playCount}}</text>
 		</view>
-		<view class="detail-nm">{{name}}</view>
+		<view wx:if="{{name !== ''}}" class="detail-nm">{{name}}</view>
+    <view wx:else class="detail-title">{{title}}</view>
 	</view>
 </view>

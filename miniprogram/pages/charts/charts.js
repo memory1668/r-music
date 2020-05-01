@@ -8,7 +8,7 @@ Page({
    */
   data: {
     chartsList: [],
-    coverImgUrl: 'http://p1.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg',
+    coverImgUrl: 'https://wx1.sinaimg.cn/mw690/dc5ffc79gy1ged78othh8j20bt07wdjz.jpg',
     isEnd: false
   },
 

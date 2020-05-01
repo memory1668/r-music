@@ -3,7 +3,8 @@
     "r-progress-bar" : "/components/progress-bar/progress-bar",
     "r-lyric" : "/components/lyric/lyric",
     "van-popup": "@vant/weapp/popup/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "van-count-down": "@vant/weapp/count-down/index"
   },
   "disableScroll": true
 }

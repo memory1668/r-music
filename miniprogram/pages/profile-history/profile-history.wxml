@@ -1,1 +1,1 @@
-<detail musiclist="{{musicList}}"/>
+<detail musiclist="{{musicList}}" coverImgUrl="{{coverImgUrl}}" title="最近播放"/>

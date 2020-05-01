@@ -12,6 +12,10 @@ Component({
     name: {
       type: String,
       value: ''
+    },
+    title: {
+      type: String,
+      value: ''
     }
   },
 

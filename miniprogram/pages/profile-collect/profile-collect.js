@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    musicList: [] // 收藏音乐列表
+    musicList: [], // 收藏音乐列表
+    coverImgUrl: 'https://wx2.sinaimg.cn/mw690/dc5ffc79gy1ged8gg5iemj203d03dgm0.jpg'
   },
 
   /**

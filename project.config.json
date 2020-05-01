@@ -189,6 +189,13 @@
 					"pathName": "pages/singer/singer-detail/singer-detail",
 					"query": "id=12138269&index=6",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/player/player",
+					"pathName": "pages/player/player",
+					"query": "musicId=1442504279&index=0",
+					"scene": null
 				}
 			]
 		}

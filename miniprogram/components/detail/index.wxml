@@ -11,7 +11,7 @@
 </view> -->
 <!-- 头部 -->
 <view class="detail-header">
-	<detail-header detailImage="{{coverImgUrl}}" playCount="{{playCount}}" name="{{name}}" />
+	<detail-header detailImage="{{coverImgUrl}}" playCount="{{playCount}}" name="{{name}}" title="{{title}}"/>
 </view>
 
 

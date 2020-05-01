@@ -10,7 +10,7 @@ image {
 
 .profile-header {
   /* background-image: url(https://wx3.sinaimg.cn/mw690/dc5ffc79gy1gcdjaq50kvj20we0p8wt9.jpg); */
-  background-image: url(https://qqadapt.qpic.cn/txdocpic/0/b04f834f912c54c66de2a63012e1d0b6/0?w=1500&h=1090);
+  background-image: url(https://wx4.sinaimg.cn/mw690/dc5ffc79gy1ged43grjjtj215a0u07gu.jpg);
   background-size: cover;
   height: 480rpx;
   display: flex;

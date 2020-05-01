@@ -4,7 +4,23 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    i: {
+      type: Number,
+      value: 1
+    },
+    curIndex: Number,
+    isShowHistory: {
+      type: Boolean,
+      value: true
+    },
+    isShowCollect: {
+      type: Boolean,
+      value: true
+    },
+    isShowBlog: {
+      type: Boolean,
+      value: true
+    }
   },
 
   options: {

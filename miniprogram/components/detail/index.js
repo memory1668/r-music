@@ -30,6 +30,10 @@ Component({
     coverImgUrl: {
       type: String,
       value: ''
+    },
+    title: {
+      type: String,
+      value: ''
     }
   },
 

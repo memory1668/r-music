@@ -128,11 +128,125 @@
   height: 50rpx;
 }
 
-.share-popup{
+.share-popup {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 94vw;
   height: 88vh;
   padding-top: 60rpx;
+}
+
+.share-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.share-tip {
+  margin-top: 100rpx;
+  color: #333;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  margin-top: 400rpx;
+}
+
+.btn {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.btn-send {
+  background: #ffbe5a;
+}
+
+.btn-receive {
+  background: #fa7d4c;
+}
+
+.button-wrapper {
+  /* background: #ea702e; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-text {
+  margin-top: 20rpx;
+}
+
+.tip {
+  display: flex;
+  align-items: center;
+}
+
+.song-info {
+  color: #666;
+  margin-top: 30rpx;
+}
+
+.tip-text{
+  font-size: 18px;
+  margin-right: 10rpx;
+}
+
+.icon-success{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+}
+
+.share-num {
+  margin-top: 50rpx;
+}
+
+.share-num-label{
+  margin-right: 400rpx;
+  color: #666;
+}
+
+.share-num-container{
+  text-align: center;
+  font-size: 40px;
+  /* background: #ffbe5a */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.share-num-text {
+  background: #ffd494;
+  width: 48rpx;
+  padding: 0 10rpx;
+  border-radius: 5px;
+  box-shadow:0px 2px 16px 0px rgba(245,245,245,1);
+}
+
+.count-down{
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.count-down-tip{
+  font-size: 13px;
+  margin-left: 4rpx;
+}
+
+
+.share-people {
+  color: #999;
+  margin-top: 200rpx;
 }

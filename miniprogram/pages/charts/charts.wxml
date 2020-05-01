@@ -6,5 +6,5 @@
     <view class="detail-nm">热歌榜TOP200</view>
   </view>
 </view> -->
-<detail listType="hotList" musiclist="{{chartsList}}" coverImgUrl="{{coverImgUrl}}" name="热歌榜TOP200"  bind:getNavTop="getNavTop" isShowTotop="{{isShowTotop}}"/>
+<detail listType="hotList" musiclist="{{chartsList}}" coverImgUrl="{{coverImgUrl}}" title="热歌榜 TOP200"  bind:getNavTop="getNavTop" isShowTotop="{{isShowTotop}}"/>
 <view wx:if="{{isEnd}}" class="end">已显示全部歌曲</view>

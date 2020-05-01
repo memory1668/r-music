@@ -3,17 +3,17 @@
 <swiper current="{{curIndex}}" bindchange="swiperChange">
   <swiper-item>
     <view class="tab-container">
-      <page-playlist/>
+      <page-playlist i="{{0}}" curIndex="{{curIndex}}"/>
     </view>
   </swiper-item>
   <swiper-item wx:if="{{isShowBlog}}" >
     <view class="tab-container">
-      <page-blog/>
+      <page-blog i="{{1}}" curIndex="{{curIndex}}"/>
     </view>
   </swiper-item>
   <swiper-item>
     <view class="tab-container">
-      <page-profile bind:hideBlog="onHideBlog" my-class="iconfont icon-16" />
+      <page-profile i="{{2}}" curIndex="{{curIndex}}" bind:hideBlog="onHideBlog" my-class="iconfont icon-16" isShowBlog="{{isShowBlog}}" isShowHistory="{{isShowHistory}}" isShowCollect="{{isShowCollect}}"/>
     </view>
   </swiper-item>
 </swiper>

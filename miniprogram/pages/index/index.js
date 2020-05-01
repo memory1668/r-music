@@ -26,7 +26,9 @@ Page({
         status: true
       }
     ],
-    isShowBlog: true
+    isShowBlog: true,
+    isShowHistory: true,
+    isShowCollect: true
   },
 
   /**
@@ -126,7 +128,28 @@ Page({
       tabbar.hideBlog()
       this.setData({
         isShowBlog: false,
-        curIndex: 1
+        curIndex: 1,
+      })
+    }
+
+    if (index === 0 && e.detail === true) {
+      console.log('showBlog')
+      const tabbar = this.selectComponent('#tabbar')
+      tabbar.showBlog()
+      this.setData({
+        isShowBlog: true,
+        curIndex: 2,
+      })
+    }
+
+    if(index === 1){
+      this.setData({
+        isShowHistory: e.detail
+      })
+    }
+    if (index === 2) {
+      this.setData({
+        isShowCollect: e.detail
       })
     }
   },
@@ -138,6 +161,9 @@ Page({
     console.log('轮播图滑动', e)
     const selected = e.detail.current
     this.selectComponent('#tabbar').setSelected(selected)
+    this.setData({
+      curIndex: e.detail.current
+    })
   },
 
   /**

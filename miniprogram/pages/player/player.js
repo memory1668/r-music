@@ -21,56 +21,47 @@ Page({
     isSame: false, // 是否播放同一首歌曲
     isCollected: false,
     count: 0, // 控制循环模式
-    show: true,
+    // show: true,
+    show: false,
     shareNum: '',
+    isShared: false,
+    // isShared: true,
+    music: {} // 当前播放音乐
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options)
-    // 读取缓存中的音乐列表
-    list = wx.getStorageSync('musiclist')
-    // 读取缓存中的收藏列表
-    collectList = wx.getStorageSync('collectList')
-    curIndex = options.index
-    // const _musicId = parseInt(options.musicId)
-    musicId = parseInt(options.musicId)
-    this.setData({
-      isPlaying: app.globalData.isPlaying,
-      isSame: musicId === app.getPlayingMusicId(),
-    })
-    console.log('isSame', this.data.isSame, parseInt(options.musicId), app.getPlayingMusicId())
-    this._loadMusicDetail(musicId)
-    this._initPlayMode()
+  onLoad: function(options) {
+    // console.log('options', options)
+    this.init(options.musicId, options.index)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
     app.globalData.isPlaying = this.data.isPlaying
     console.log('onUnload', app.globalData.isPlaying)
   },
@@ -78,22 +69,40 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
+  },
+
+
+  init(musicId, index) {
+    // 读取缓存中的音乐列表
+    list = wx.getStorageSync('musiclist')
+    // 读取缓存中的收藏列表
+    collectList = wx.getStorageSync('collectList')
+    curIndex = index
+    // const _musicId = parseInt(options.musicId)
+    musicId = parseInt(musicId)
+    this.setData({
+      isPlaying: app.globalData.isPlaying,
+      isSame: musicId === app.getPlayingMusicId(),
+    })
+    console.log('isSame', this.data.isSame, parseInt(musicId), app.getPlayingMusicId())
+    this._loadMusicDetail(musicId)
+    this._initPlayMode()
   },
 
   /**
@@ -107,6 +116,9 @@ Page({
     }
 
     let music = list[curIndex] // 当前正在播放的歌曲
+    this.setData({
+      music
+    })
     // 设置全局当前正在播放的音乐id
     app.setPlayingMusicId(musicId)
 
@@ -443,11 +455,97 @@ Page({
   },
 
   showPopup() {
-    console.log('showPopup')
-    this.setData({ show: true });
+    // console.log('showPopup')
+    this.setData({
+      show: true,
+      isShared: false,
+      shareNum: '',
+      shareNumStr: ''
+    });
   },
 
   onClose() {
-    this.setData({ show: false });
+    this.setData({
+      show: false
+    });
+  },
+
+  handleChange(e) {
+    this.setData({
+      // shareNum: e.detail,
+      shareNumStr: e.detail +''
+    })
+  },
+
+  /**
+   * 分享音乐
+   */
+  share() {
+    if (this.data.shareNumStr === '') {
+      wx.showToast({
+        title: '分享码不能为空',
+        icon: 'none'
+      })
+      return
+    }
+    console.log('分享音乐', curIndex, list)
+    wx.showLoading({
+      title: '分享中...',
+    })
+    db.collection('share').add({
+      data: {
+        share_num: this.data.shareNumStr,
+        music: list[curIndex],
+        createTime: db.serverDate() // 服务端时间
+      }
+    }).then(res => {
+      console.log('分享音乐成功')
+      this.setData({
+        isShared: true
+      })
+      wx.hideLoading()
+    }).catch(err => {
+      console.log('分享音乐失败', err)
+      wx.hideLoading()
+      wx.showToast({
+        title: '操作失败,请重试',
+        icon: 'none'
+      })
+    })
+  },
+
+
+  /**
+   * 收听音乐
+   */
+  listen() {
+    if (this.data.shareNumStr === '') {
+      wx.showToast({
+        title: '分享码不能为空',
+        icon: 'none'
+      })
+      return
+    }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    db.collection('share').where({
+      share_num: this.data.shareNumStr
+    }).get().then(res => {
+      console.log('收听音乐成功', res)
+      const music = res.data[0].music
+      // 保存音乐在缓存
+      wx.setStorageSync('musiclist', [music])
+      this.init(music.id, 0)
+      wx.hideLoading()
+      this.onClose()
+    }).catch(err => {
+      console.log('收听音乐失败', err)
+      wx.hideLoading()
+      wx.showToast({
+        title: '操作失败,请重试',
+        icon: 'none'
+      })
+    })
   }
 })

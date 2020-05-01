@@ -1,1 +1,1 @@
-<detail listType="playList" musiclist="{{musiclist}}" coverImgUrl="{{musiclist[0].album.picUrl}}" name="最新歌曲" />
+<detail listType="playList" musiclist="{{musiclist}}" coverImgUrl="{{musiclist[0].album.picUrl}}" title="最新歌曲" />

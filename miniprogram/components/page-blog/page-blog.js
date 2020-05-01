@@ -6,7 +6,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    i: {
+      type: Number,
+      value: 1
+    },
+    curIndex: Number
   },
 
   options: {
@@ -21,8 +25,16 @@ Component({
     blogList: [] // 博客列表数据
   },
 
+  observers: {
+    curIndex(val) {
+      if (val === this.data.i && this.data.blogList.length === 0) {
+        this._loadBlogList()
+      }
+    }
+  },
+
   attached() {
-    this._loadBlogList()
+    // this._loadBlogList()
   },
 
   /**

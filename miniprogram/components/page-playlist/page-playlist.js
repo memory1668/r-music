@@ -6,7 +6,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    i: {
+      type: Number,
+      value: 1
+    },
+    curIndex: Number
   },
 
   // options: {
@@ -24,10 +28,21 @@ Component({
     chartsList: []
   },
 
+
+  observers: {
+    curIndex(val) {
+      if (val === this.data.i && this.data.playlist.length === 0) {
+        this._getPlayList()
+        this._getSwiper()
+        this._getCharts()
+      }
+    }
+  },
+
   attached() {
-    this._getPlayList()
-    this._getSwiper()
-    this._getCharts()
+    // this._getPlayList()
+    // this._getSwiper()
+    // this._getCharts()
   },
 
   /**

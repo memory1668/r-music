@@ -76,6 +76,15 @@ Component({
       })
     },
 
+    showBlog() {
+      this.setData({
+        list: list1
+      })
+      this.setData({
+        selected: 2
+      })
+    },
+
     /**
      * 设置当前选中的tab索引
      */

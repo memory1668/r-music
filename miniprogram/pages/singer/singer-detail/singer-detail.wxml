@@ -6,7 +6,7 @@
 
 <scroll-view style="height: 100%" scroll-y="{{true}}" bindscroll="scroll">
 	<!--头部 -->
-	<detail-header detailImage="{{albumList[0].artist.picUrl}}" name="{{albumList[0].artist.name}}" />
+	<detail-header detailImage="{{albumList[0].artist.picUrl}}" title="{{albumList[0].artist.name}}" />
 	<!-- tab -->
 	<view wx:if="tabs.length > 0" class="tab" id="tab">
 		<view wx:for="{{tabs}}" wx:key="index" class="tab-song tab-item">

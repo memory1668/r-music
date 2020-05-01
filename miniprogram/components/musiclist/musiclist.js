@@ -64,6 +64,7 @@ Component({
       wx.navigateTo({
         url: `/pages/player/player?musicId=${musicid}&index=${ds.index}`,
       })
+      this._setMusicList(this.data.musiclist)
     },
     /**
      * 将当前音乐列表存储在缓存

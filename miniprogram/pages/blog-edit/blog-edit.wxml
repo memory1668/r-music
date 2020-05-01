@@ -1,6 +1,6 @@
 <view class="container">
   <!-- 音频 -->
-  <!-- <audio-player iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting" audioSrc="{{tempFilePath}}"></audio-player> -->
+  <audio-player wx:if="{{audio.src !== ''}}" iconfont="iconfont" icon-bofang="icon-bofang" icon-zanting="icon-zanting" audioSrc="{{audio.src}}"></audio-player>
   <!-- 输入框 -->
   <textarea class="content" placeholder="分享新鲜事..." maxlength="140" bindinput="onInput" auto-focus bindfocus="onFocus" bindblur="onBlur">
   </textarea>
@@ -8,9 +8,10 @@
     <!-- 显示图片 -->
     <block wx:for="{{images}}" wx:key="*this">
       <view class="image-wrap">
-        <image class="images" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
+        <image class="image" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
         <!-- 删除图标 -->
-        <i class="iconfont icon-shanchu" bindtap="onDelImage" data-index="{{index}}"></i>
+        <!-- <i class="iconfont icon-shanchu" bindtap="onDelImage" data-index="{{index}}"></i> -->
+        <image class="icon-delete" src="/images/icon-delete.png" bindtap="onDelImage"></image>
       </view>
     </block>
     <!-- 选择图片 -->

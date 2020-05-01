@@ -23,7 +23,8 @@ image {
 }
 
 .search-container {
-  flex: 1;
+  /* flex: 1; */
+  width: 520rpx;
 }
 
 .charts-container {
